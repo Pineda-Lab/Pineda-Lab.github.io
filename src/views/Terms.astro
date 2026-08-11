@@ -7,10 +7,10 @@ const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 ---
 
-<Layout title={t.legal.terms.title}>
+<Layout title={t.legal.terms.title} description={t.legal.terms.paragraphs[0]} noindex>
   <PageHeader title={t.legal.terms.title} />
 
-  <section class="mx-auto max-w-3xl space-y-4 px-6 py-16 text-slate-600">
+  <section class="mx-auto max-w-3xl space-y-4 px-6 py-16 text-slate-600 sm:py-20">
     {t.legal.terms.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
   </section>
 </Layout>

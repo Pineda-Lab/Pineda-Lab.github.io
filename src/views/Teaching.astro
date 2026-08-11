@@ -1,7 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/PageHeader.astro";
+import Card from "../components/Card.astro";
 import { getLocale, useTranslations } from "../i18n/utils";
+import { parseTerm, isCurrentTerm } from "../utils/academicTerm";
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
@@ -10,23 +12,54 @@ const t = useTranslations(locale);
 <Layout title={t.teaching.title} description={t.teaching.description}>
   <PageHeader eyebrow={t.teaching.eyebrow} title={t.teaching.title} description={t.teaching.description} />
 
-  {
-    t.teaching.programs.map((program) => (
-      <section class="mx-auto max-w-6xl px-6 py-12">
-        <h2 class="text-xl font-bold text-navy">{program.name}</h2>
-        <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {program.courses.map((course) => (
-            <div class="rounded-2xl border border-slate-200 bg-white p-6">
-              <h3 class="font-semibold text-navy">{course.name}</h3>
-              <div class="mt-3 flex flex-wrap gap-2">
-                {course.terms.map((term) => (
-                  <span class="rounded-full bg-slate-blue/10 px-3 py-1 text-xs font-medium text-slate-blue">{term}</span>
-                ))}
-              </div>
-            </div>
-          ))}
+  <section class="mx-auto max-w-6xl space-y-12 px-6 py-16 sm:py-20">
+    {
+      t.teaching.programs.map((program) => (
+        <div>
+          <h2 class="text-xl font-bold text-navy">{program.name}</h2>
+          <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {program.courses.map((course) => (
+              <Card>
+                <h3 class="font-semibold text-navy">{course.name}</h3>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {course.terms.map((term) => {
+                    const { season, year } = parseTerm(term.term);
+                    const seasonLabel = season === "fall" ? t.teaching.fallLabel : t.teaching.springLabel;
+                    const current = isCurrentTerm(term.term);
+                    const TermTag = term.classroomUrl ? "a" : "span";
+                    return (
+                      <TermTag
+                        href={term.classroomUrl || undefined}
+                        target={term.classroomUrl ? "_blank" : undefined}
+                        rel={term.classroomUrl ? "noopener noreferrer" : undefined}
+                        class:list={[
+                          "flex flex-col items-start gap-0.5 rounded-xl px-3 py-1.5 leading-tight",
+                          current ? "bg-slate-blue text-white" : "bg-slate-blue/10 text-slate-blue",
+                          term.classroomUrl && "transition-opacity hover:opacity-80",
+                        ]}
+                      >
+                        <span class="flex items-center gap-1 text-sm font-semibold">
+                          {seasonLabel} {year}
+                          {term.classroomUrl && (
+                            <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414Z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                          )}
+                        </span>
+                        <span class="text-[11px] font-normal opacity-70">{term.term}</span>
+                      </TermTag>
+                    );
+                  })}
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
-      </section>
-    ))
-  }
+      ))
+    }
+  </section>
 </Layout>

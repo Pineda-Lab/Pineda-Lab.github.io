@@ -27,8 +27,8 @@ Each page is a thin route file under `src/pages/` (and its `src/pages/es/` count
 
 ## Editing content
 
-Most UI strings and page copy live in `src/data/translations.json`, keyed by locale (`en` / `es`). Editing a page's text means editing that file rather than markup.
+Most UI strings and page copy live under `src/data/`, split into one YAML file per section (`common.yaml`, `home.yaml`, `projects.yaml`, `teaching.yaml`, `people.yaml`, `visit.yaml`, `publications.yaml`, `legal.yaml`), each keyed by locale (`en` / `es`). Editing a page's text means editing the matching file rather than markup — e.g. course names and Google Classroom links live in `src/data/teaching.yaml`.
 
-The Publications page instead reads from `src/data/research.yaml` (also keyed by `en` / `es`) — add or edit a publication by editing that YAML file's `content.publications` list.
+Actual publication records (not just UI strings) live separately in `src/data/research.yaml` (also keyed by `en` / `es`) — add or edit a publication by editing that YAML file's `content.publications` list.
 
 Bilingual routing uses Astro's built-in i18n config (see `astro.config.mjs`): English is unprefixed at the root, Spanish is served from `/es/`. Locale-aware internal links are built with `getRelativeLocaleUrl` from `astro:i18n`.

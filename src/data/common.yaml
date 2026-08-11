@@ -1,0 +1,39 @@
+en:
+  meta:
+    siteName: "Pineda Lab"
+    tagline: "AI in Health · Digital Health · Clinical Genomics"
+    defaultDescription: "Pineda Lab is a research group at ENES Morelia, UNAM, working at the intersection of artificial intelligence, digital health, and clinical genomics."
+  common:
+    skipToContent: "Skip to main content"
+  nav:
+    home: "Home"
+    teaching: "Teaching"
+    people: "People"
+    publications: "Publications"
+    mainNavLabel: "Main navigation"
+    toggleMenu: "Toggle navigation menu"
+    langSwitchLabel: "Switch language"
+  footer:
+    rights: "All rights reserved."
+    privacyLabel: "Privacy Policy"
+    termsLabel: "Terms & Conditions"
+
+es:
+  meta:
+    siteName: "Pineda Lab"
+    tagline: "IA en Salud · Salud Digital · Genómica Clínica"
+    defaultDescription: "El Pineda Lab es un grupo de investigación de la ENES Morelia, UNAM, que trabaja en la intersección entre la inteligencia artificial, la salud digital y la genómica clínica."
+  common:
+    skipToContent: "Saltar al contenido principal"
+  nav:
+    home: "Inicio"
+    teaching: "Docencia"
+    people: "Personas"
+    publications: "Publicaciones"
+    mainNavLabel: "Navegación principal"
+    toggleMenu: "Alternar menú de navegación"
+    langSwitchLabel: "Cambiar idioma"
+  footer:
+    rights: "Todos los derechos reservados."
+    privacyLabel: "Política de Privacidad"
+    termsLabel: "Términos y Condiciones"

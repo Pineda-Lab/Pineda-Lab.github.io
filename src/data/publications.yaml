@@ -1,0 +1,15 @@
+en:
+  filterYear: "Year"
+  filterType: "Type"
+  filterAll: "All"
+  emptyState: "No publications match these filters."
+  resultsLabel: "publications shown"
+  viewPublicationLabel: "View publication"
+
+es:
+  filterYear: "Año"
+  filterType: "Tipo"
+  filterAll: "Todos"
+  emptyState: "No hay publicaciones que coincidan con estos filtros."
+  resultsLabel: "publicaciones mostradas"
+  viewPublicationLabel: "Ver publicación"

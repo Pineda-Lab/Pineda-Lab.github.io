@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/PageHeader.astro";
+import Pill from "../components/Pill.astro";
 import research from "../data/research.yaml";
 import { getLocale, useTranslations } from "../i18n/utils";
 
@@ -26,7 +27,7 @@ for (const pub of publications) {
 <Layout title={t.nav.publications} description={data.text}>
   <PageHeader title={t.nav.publications} description={data.text} />
 
-  <section class="mx-auto max-w-6xl px-6 py-16">
+  <section class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
     <div class="space-y-4 rounded-2xl bg-slate-50 p-4 sm:p-6">
       <div class="flex flex-wrap items-center gap-2" role="group" aria-label={t.publications.filterYear}>
         <span class="text-xs font-semibold uppercase tracking-wide text-slate-500">{t.publications.filterYear}</span>
@@ -95,14 +96,9 @@ for (const pub of publications) {
               data-type={pub.type}
             >
               <div class="flex flex-wrap items-center gap-2">
-                <span
-                  class:list={[
-                    "rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide",
-                    isHighlighted ? "bg-slate-blue text-white" : "bg-slate-blue/10 text-slate-blue",
-                  ]}
-                >
+                <Pill tone={isHighlighted ? "solid" : "tint"} uppercase>
                   {pub.type}
-                </span>
+                </Pill>
                 <span class="text-sm text-slate-500">{pub.date}</span>
               </div>
               <h3 class="mt-2 text-lg font-semibold leading-snug text-navy">{pub.title}</h3>
@@ -152,9 +148,7 @@ for (const pub of publications) {
                     <div>
                       <dt class="font-semibold text-slate-500">{data.details_keywords}</dt>
                       <dd class="mt-2 flex flex-wrap gap-2">
-                        {pub.keywords.map((keyword: string) => (
-                          <span class="rounded-full bg-slate-blue/10 px-3 py-1 text-xs font-medium text-slate-blue">{keyword}</span>
-                        ))}
+                        {pub.keywords.map((keyword: string) => <Pill>{keyword}</Pill>)}
                       </dd>
                     </div>
                   )}

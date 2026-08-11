@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/*
+  Design tokens. Everything else in the site (components, views) should pull
+  color from these four roles rather than introducing new one-off values:
+    --color-navy       body text / dark surfaces (hero, footer)
+    --color-slate-blue  primary brand accent (buttons, links, active states)
+    --color-surface     page background
+    --color-ice          highlight accent (eyebrows, CTA fills, focus ring)
+*/
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
 

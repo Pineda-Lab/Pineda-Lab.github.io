@@ -1,0 +1,23 @@
+en:
+  privacy:
+    title: "Privacy Policy"
+    paragraphs:
+      - "Pineda Lab (ENES Morelia, UNAM) does not collect personal data through this website beyond what you voluntarily send by email."
+      - "This site embeds a Google Maps view on the Home page, which may set cookies per Google's own policy. We do not use analytics or advertising trackers."
+  terms:
+    title: "Terms & Conditions"
+    paragraphs:
+      - "Content on this site is provided for informational purposes about the Pineda Lab's research and teaching activities."
+      - "Unless noted otherwise, text and media are © Pineda Lab, ENES Morelia, UNAM."
+
+es:
+  privacy:
+    title: "Política de Privacidad"
+    paragraphs:
+      - "Pineda Lab (ENES Morelia, UNAM) no recopila datos personales a través de este sitio web, más allá de lo que usted envíe voluntariamente por correo electrónico."
+      - "Este sitio incluye un mapa de Google Maps en la página de Inicio, el cual puede establecer cookies conforme a la política de Google. No utilizamos herramientas de análisis ni rastreadores publicitarios."
+  terms:
+    title: "Términos y Condiciones"
+    paragraphs:
+      - "El contenido de este sitio se proporciona con fines informativos sobre las actividades de investigación y docencia del Pineda Lab."
+      - "Salvo que se indique lo contrario, el texto y los medios son © Pineda Lab, ENES Morelia, UNAM."

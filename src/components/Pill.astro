@@ -1,0 +1,33 @@
+---
+interface Props {
+  tone?: "tint" | "solid";
+  uppercase?: boolean;
+  href?: string;
+  external?: boolean;
+  class?: string;
+}
+
+const { tone = "tint", uppercase = false, href, external = false, class: className } = Astro.props;
+
+const toneClasses: Record<NonNullable<Props["tone"]>, string> = {
+  tint: "bg-slate-blue/10 text-slate-blue",
+  solid: "bg-slate-blue text-white",
+};
+
+const Tag = href ? "a" : "span";
+---
+
+<Tag
+  href={href}
+  target={href && external ? "_blank" : undefined}
+  rel={href && external ? "noopener noreferrer" : undefined}
+  class:list={[
+    "rounded-full font-medium",
+    uppercase ? "px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide" : "px-3 py-1 text-xs",
+    toneClasses[tone],
+    href && "transition-colors hover:bg-slate-blue/20",
+    className,
+  ]}
+>
+  <slot />
+</Tag>

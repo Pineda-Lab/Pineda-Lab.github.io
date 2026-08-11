@@ -1,0 +1,63 @@
+en:
+  eyebrow: "In the classroom"
+  title: "Teaching"
+  description: "Courses taught across undergraduate programs at ENES Morelia, UNAM."
+  fallLabel: "Fall"
+  springLabel: "Spring"
+  programs:
+    - name: "Bachelor's in Information Technologies for Sciences"
+      courses:
+        - name: "Digital Repositories"
+          terms:
+            - term: "2024-2"
+              classroomUrl: ""
+            - term: "2025-2"
+              classroomUrl: ""
+            - term: "2026-2"
+              classroomUrl: ""
+        - name: "Bioinformatics"
+          terms:
+            - term: "2026-1"
+              classroomUrl: ""
+        - name: "Data Mining"
+          terms:
+            - term: "2027-1"
+              classroomUrl: "https://classroom.google.com/c/ODcxMjUyMTk2OTEw?cjc=s3yjoh7r"
+    - name: "Bachelor's in Business Administration"
+      courses:
+        - name: "Information and Communication Technologies"
+          terms:
+            - term: "2027-1"
+              classroomUrl: ""
+
+es:
+  eyebrow: "En el aula"
+  title: "Docencia"
+  description: "Cursos impartidos en distintas licenciaturas de la ENES Morelia, UNAM."
+  fallLabel: "Otoño"
+  springLabel: "Primavera"
+  programs:
+    - name: "Licenciatura en Tecnologías para la Información en Ciencias"
+      courses:
+        - name: "Repositorios Digitales"
+          terms:
+            - term: "2024-2"
+              classroomUrl: ""
+            - term: "2025-2"
+              classroomUrl: ""
+            - term: "2026-2"
+              classroomUrl: ""
+        - name: "Bioinformática"
+          terms:
+            - term: "2026-1"
+              classroomUrl: ""
+        - name: "Minería de Datos"
+          terms:
+            - term: "2027-1"
+              classroomUrl: ""
+    - name: "Licenciatura en Administración"
+      courses:
+        - name: "Tecnologías de la Información y Comunicación"
+          terms:
+            - term: "2027-1"
+              classroomUrl: ""

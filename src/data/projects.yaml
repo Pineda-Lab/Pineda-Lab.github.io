@@ -1,0 +1,21 @@
+en:
+  eyebrow: "What we're building"
+  title: "Projects"
+  description: "Research projects underway at the lab."
+  projectsList:
+    - name: "DIABETIA"
+      description: "Longitudinal study for the development of predictive models for chronic complications of type 2 diabetes mellitus."
+    - name: "MOWI"
+      description: "Mobile and Wearable Health Interfaces."
+  githubLinkText: "See our open-source work on GitHub"
+
+es:
+  eyebrow: "Lo que estamos construyendo"
+  title: "Proyectos"
+  description: "Proyectos de investigación en curso en el laboratorio."
+  projectsList:
+    - name: "DIABETIA"
+      description: "Estudio longitudinal para el desarrollo de modelos predictivos de complicaciones crónicas de la diabetes mellitus tipo 2."
+    - name: "MOWI"
+      description: "Interfaces Móviles y Portátiles para la Salud."
+  githubLinkText: "Consulta nuestro trabajo de código abierto en GitHub"
