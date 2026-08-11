@@ -1,0 +1,412 @@
+enabled: true
+id: "research"
+
+en:
+  title: "Our Research"
+  text: "Check out the latest publications from the Pineda Lab, reflecting our commitment to cutting-edge biomedical research."
+  button_label: "View all publications"
+  button_url: "/en/research"
+  button_individual: "Read more"
+  cta_title: "Ready to use the evidence?"
+  cta_desc: "Schedule a meeting to see how our AI applies this knowledge to your clinical data."
+  cta_button: "Propose a collaboration"
+  cta_url: "https://wa.me/524433046300?text=Hello%2C%20I%27m%20interested%20in%20a%20research%20collaboration%20with%20Amphora%20Health%20%28from%20the%20Amphora%20website%29"
+  details_title: "See authors and full reference"
+  details_authors: "Authors"
+  details_journal: "Journal"
+  details_event: "Event/Conference"
+  details_keywords: "Keywords"
+  details_date: "Publication date"
+  content:
+    publications:
+      - type: "Research Article"
+        title: "Analysis of a deeply-phenotyped familial hypercholesterolemia cohort from Mexico shows a role for both rare and common alleles across known dyslipidemia genes and reveals structural variation in a novel locus"
+        authors: "Nicholas Katsanis, Niki Mourtzi, Consuelo D. Quinto-Cortés, Alexandro J. Martagon, Alexander G. Ioannidis, Francisco M. De La Vega, Jeff Gulcher, Ming Ta Michael Lee, Mohammad A. Faghihi, Arturo Lopez-Pineda, Sonia Moreno-Grau, Daniel Mas Montserrat, Míriam Barrabés, David Bonet, Pavel Salazar Fernandez, Jeff Wall, Babak Moatamed, Roopa Mehta, Gabriela A. Galan-Ramirez, Rafael Zubirán, Daniel Elias-Lopez, Teresa Tusié-Luna, Carlos A. Aguilar-Salinas, Carlos D. Bustamante & F. H. Mexican Registry Group"
+        date: "2025"
+        journal: "Human Genomics"
+        url: "https://doi.org/10.1186/s40246-025-00831-9"
+        keywords:
+          [
+            "Familial Hypercholesterolemia",
+            "Mexico",
+            "Genomics",
+            "Polygenic Risk Score",
+            "Ancestry",
+          ]
+
+      - type: "Research Article"
+        title: "Prevalence and metabolic risk factors of chronic kidney disease among a Mexican adult population: a cross-sectional study in primary healthcare medical units"
+        authors: "Paredes, A. R. A., García, A. G., Paredes, M. A. A., Velázquez, N., Bolaños, D. C. O., Sandoval, M. S. P., … & Aguilar, C. A."
+        date: "2024"
+        journal: "PeerJ"
+        issue: "12"
+        page: "e17817"
+        url: "https://doi.org/10.7717/peerj.17817"
+        keywords:
+          [
+            "chronic kidney disease",
+            "metabolic risk factors",
+            "primary healthcare",
+            "Mexico",
+            "healthcare disparities",
+          ]
+
+      - type: "Research Article"
+        title: "Polygenic risk score portability for common diseases across genetically diverse populations"
+        authors: "Moreno-Grau, S., Vernekar, M., Lopez-Pineda, A., Mas-Montserrat, D., Barrabés, M., Quinto-Cortés, C. D., … & Bustamante, C. D."
+        date: "2024"
+        journal: "Human Genomics, 18(1), 93"
+        url: "https://doi.org/10.1186/s40246-024-00664-y"
+        keywords:
+          [
+            "polygenic risk score",
+            "genetic diversity",
+            "common diseases",
+            "health equity",
+          ]
+
+      - type: "Poster"
+        title: "Comprehensive genetic analysis of the Mexican Familial Hypercholesterolemia Registry participants"
+        authors: "Salazar-Fernandez, E. P., Quinto-Cortés, C. D., Mourtzi, N., Moreno-Grau, S., Mas, D., Barrabes, M., Bonet, D., Lopez-Pineda, A., Wall, J., Ioannidis, A. G., Bustamante, C. D., Katsanis, N., Martagon, A. J., Mehta, R., Galan-Ramirez, G. A., Zubirán, R., Elias-Lopez, D., FH Mexican Registry Group, Tusié-Luna, T., & Aguilar-Salinas, C. A."
+        date: "2024"
+        event: "ASHG 2024 Annual Meeting"
+        location: "Denver, CO, USA"
+        keywords:
+          [
+            "Familial Hypercholesterolemia",
+            "genetic analysis",
+            "Mexican population",
+            "genetic counseling",
+          ]
+
+      - type: "Poster"
+        title: "Reto CAMDA: Una exploración de IA y ML aplicado a diabetes"
+        authors: "Santana-Quinteros, D., Tripp, J., Figueroa, K., Selem, N., & Lopez-Pineda, A."
+        date: "2024"
+        event: "1er Congreso de Salud Digital UNAM"
+        location: "Coyoacan, Mexico City, México"
+        keywords: ["AI", "machine learning", "diabetes", "digital health"]
+
+      - type: "Poster"
+        title: "Construyendo un repositorio institucional, interoperable y digital para facilitar la investigación de DM2"
+        authors: "Tripp, J., Rodríguez Morán, M. F., Quiroz Armada, P. S., Alvarez Aguilar, C., Gómez Garcia, A., & López Pineda, A."
+        date: "2024"
+        event: "1er Congreso de Salud Digital UNAM"
+        location: "Coyoacan, Mexico City, México"
+        keywords:
+          ["DM2", "digital repository", "interoperability", "health research"]
+
+      - type: "Poster"
+        title: "DiabetIA, un recurso a partir de datos del mundo real para emular ensayos clínicos en México"
+        authors: "Rodríguez Morán, M. F., Alvarez Aguilar, C., López Pineda, A., Tripp Gudiño, J., & Gómez García, A."
+        date: "2024"
+        event: "1er Congreso de Salud Digital UNAM"
+        location: "Coyoacan, Mexico City, México"
+        keywords: ["real-world data", "clinical trials", "DiabetIA", "Mexico"]
+
+      - type: "Popular Science"
+        title: "Si eres diabético, cuida tus pies"
+        authors: "Flores-Álvarez, L. J., & Álvarez-Aguilar, C."
+        date: "2024"
+        journal: "Saber Mas"
+        issue: "13"
+        page: "5-12"
+        keywords: ["public health", "diabetes", "health education"]
+
+      - type: "Popular Science"
+        title: "Neuropatía diabética: La enfermedad del «calcetín y guante»"
+        authors: "Cortés-Vieyra, R., & López-Pineda, A."
+        date: "2024"
+        journal: "Saber Mas"
+        issue: "13"
+        page: "13-21"
+        keywords: ["public health", "diabetes", "health education"]
+
+      - type: "Popular Science"
+        title: "La diabetes mellitus tipo 2: ¿Cómo afecta al riñón?"
+        authors: "Zinzun-Ixta, G., & Rodríguez-Morán, M. F. "
+        date: "2024"
+        journal: "Saber Mas"
+        issue: "13"
+        page: "22-30"
+        keywords: ["public health", "diabetes", "health education"]
+
+      - type: "Pre-print"
+        title: "DiabetIA: Building Machine Learning Models for Type 2 Diabetes Complications"
+        authors: "Tripp J., Santana-Quinteros, D., Perez-Estrada, R., Rodriguez-Moran, M. F. ..., Flores-Garrido, M., Garcia-Velazquez, L.M., Figueroa-Mora, K.M., Gomez-Garcia, A., Alvarez-Aguilar, C., Lopez-Pineda, A."
+        date: "2023"
+        url: "https://doi.org/10.1101/2023.10.22.23297277"
+        keywords:
+          [
+            "machine learning",
+            "diabetes complications",
+            "predictive models",
+            "healthcare innovation",
+          ]
+
+      - type: "Poster"
+        title: "The Biobank of the Americas: An Exploration on a Direct-to-Consumer Genotyping Service for Latin America"
+        authors: "Salazar-Fernandez, EP; Quinto-Cortés, CD; Gonzalez-Arroyo, G;  Moreno Grau, S; Lopez-Pineda, A; Nava-Aguilar, MA; Moatamed, B; Lee, MT; Wall, J; Katsanis, N; Ioannidis, A; and Carlos D. Bustamante."
+        date: "2023"
+        event: "MexPopGen 6th edition"
+        location: "Cuernavaca, Mexico"
+        url: "https://drive.google.com/file/d/17600LCBALPnRl5BZ6z9Xft5rcaPRyucI/view"
+        keywords: ["biobank", "genotyping", "Latin America", "genetic testing"]
+
+      - type: "Poster"
+        title: "A framework to evaluate and validate polygenic risk models at scale"
+        authors: "Moreno Grau S., Vernekar M., Lopez-Pineda A., Nava-Aguilar M. A., Quinto-Cortés C., Moatamed B., Lee M., Yu Z., Numakura K., Matsuda Y., Wall J. D., Ioannidis A., Katsanis N., Takano T., Bustamante C."
+        date: "2023"
+        event: "Annual Meeting of The American Society of Human Genetics"
+        location: "Washington, DC"
+        keywords:
+          ["polygenic risk", "genetic models", "validation", "scalability"]
+
+      - type: "Oral Presentation"
+        title: "Assessment of polygenic risk score models across continental populations: a study in gout"
+        authors: "Nava-Aguilar, MA; Moreno-Grau, S; Lopez-Pineda, A; Wall, J; Salazar-Fernandez, EP; Quinto-Cortés, CD;  Gonzalez-Arroyo, G.; Moatamed, B; Lee, MT; Katsanis, N; Ioannidis, A; and Carlos D. Bustamante."
+        date: "2023"
+        event: "MexPopGen 6th edition"
+        page: "89"
+        url: "https://drive.google.com/file/d/17600LCBALPnRl5BZ6z9Xft5rcaPRyucI/view"
+        keywords:
+          [
+            "polygenic risk scores",
+            "gout",
+            "continental populations",
+            "genetic epidemiology",
+          ]
+
+      - type: "Abstract"
+        title: "PGS-Explorer: A web-based meta-analysis tool for polygenic scores"
+        authors: "Lopez Pineda, A., Perez Estrada, R., Nava-Aguilar, M. A., Menchaca Mendez, A., Anaya-Muñoz, V. H., & Moreno-Grau, S."
+        date: "2023"
+        journal: "Journal of Clinical Oncology"
+        volume: "41"
+        issue: "16_suppl"
+        page: "e13538-e13538"
+        keywords:
+          [
+            "meta-analysis",
+            "polygenic scores",
+            "web tools",
+            "clinical oncology",
+          ]
+
+      - type: "Research Article"
+        title: "Validating and automating learning of cardiometabolic polygenic risk scores from direct-to-consumer genetic and phenotypic data: implications for scaling precision health research"
+        authors: "Lopez-Pineda, A., Vernekar, M., …, Nava-Aguilar, M.A., Gonzalez-Arroyo, G., … & Bustamante, C. D."
+        date: "2022"
+        journal: "Human genomics, 16(1), 1-10"
+        keywords:
+          [
+            "cardiometabolic risk",
+            "polygenic risk scores",
+            "direct-to-consumer genetics",
+            "precision health",
+          ]
+
+es:
+  title: "Nuestra investigación"
+  text: "Consulta las publicaciones más recientes del Pineda Lab, reflejo de nuestro compromiso con la investigación biomédica de vanguardia."
+  button_label: "Ver todas las publicaciones"
+  button_url: "/investigacion"
+  button_individual: "Leer más"
+  cta_title: "¿Listo para usar la evidencia?"
+  cta_desc: "Agenda una reunión para ver cómo nuestra IA aplica estos conocimientos a tus datos clínicos."
+  cta_button: "Propón una colaboración"
+  cta_url: "https://wa.me/524433046300?text=Hola%2C%20me%20interesa%20una%20colaboraci%C3%B3n%20de%20investigaci%C3%B3n%20con%20Amphora%20Health%20%28sitio%20de%20Amphora%29"
+  details_title: "Ver autores y referencia completa"
+  details_authors: "Autores"
+  details_journal: "Revista"
+  details_event: "Evento/Conferencia"
+  details_keywords: "Palabras clave"
+  details_date: "Fecha de publicación"
+  content:
+    publications:
+      - type: "Artículo de Investigación"
+        title: "Analysis of a deeply-phenotyped familial hypercholesterolemia cohort from Mexico shows a role for both rare and common alleles across known dyslipidemia genes and reveals structural variation in a novel locus"
+        authors: "Nicholas Katsanis, Niki Mourtzi, Consuelo D. Quinto-Cortés, Alexandro J. Martagon, Alexander G. Ioannidis, Francisco M. De La Vega, Jeff Gulcher, Ming Ta Michael Lee, Mohammad A. Faghihi, Arturo Lopez-Pineda, Sonia Moreno-Grau, Daniel Mas Montserrat, Míriam Barrabés, David Bonet, Pavel Salazar Fernandez, Jeff Wall, Babak Moatamed, Roopa Mehta, Gabriela A. Galan-Ramirez, Rafael Zubirán, Daniel Elias-Lopez, Teresa Tusié-Luna, Carlos A. Aguilar-Salinas, Carlos D. Bustamante & F. H. Mexican Registry Group"
+        date: "2025"
+        journal: "Human Genomics"
+        url: "https://doi.org/10.1186/s40246-025-00831-9"
+        keywords:
+          [
+            "Familial Hypercholesterolemia",
+            "Mexico",
+            "Genomics",
+            "Polygenic Risk Score",
+            "Ancestry",
+          ]
+
+      - type: "Artículo de Investigación"
+        title: "Prevalence and metabolic risk factors of chronic kidney disease among a Mexican adult population: a cross-sectional study in primary healthcare medical units"
+        authors: "Paredes, A. R. A., García, A. G., Paredes, M. A. A., Velázquez, N., Bolaños, D. C. O., Sandoval, M. S. P., … & Aguilar, C. A."
+        date: "2024"
+        journal: "PeerJ"
+        issue: "12"
+        page: "e17817"
+        url: "https://doi.org/10.7717/peerj.17817"
+        keywords:
+          [
+            "chronic kidney disease",
+            "metabolic risk factors",
+            "primary healthcare",
+            "Mexico",
+            "healthcare disparities",
+          ]
+
+      - type: "Artículo de Investigación"
+        title: "Polygenic risk score portability for common diseases across genetically diverse populations"
+        authors: "Moreno-Grau, S., Vernekar, M., Lopez-Pineda, A., Mas-Montserrat, D., Barrabés, M., Quinto-Cortés, C. D., … & Bustamante, C. D."
+        date: "2024"
+        journal: "Human Genomics, 18(1), 93"
+        url: "https://doi.org/10.1186/s40246-024-00664-y"
+        keywords:
+          [
+            "polygenic risk score",
+            "genetic diversity",
+            "common diseases",
+            "health equity",
+          ]
+
+      - type: "Póster"
+        title: "Comprehensive genetic analysis of the Mexican Familial Hypercholesterolemia Registry participants"
+        authors: "Salazar-Fernandez, E. P., Quinto-Cortés, C. D., Mourtzi, N., Moreno-Grau, S., Mas, D., Barrabes, M., Bonet, D., Lopez-Pineda, A., Wall, J., Ioannidis, A. G., Bustamante, C. D., Katsanis, N., Martagon, A. J., Mehta, R., Galan-Ramirez, G. A., Zubirán, R., Elias-Lopez, D., FH Mexican Registry Group, Tusié-Luna, T., & Aguilar-Salinas, C. A."
+        date: "2024"
+        event: "ASHG 2024 Annual Meeting"
+        location: "Denver, CO, USA"
+        keywords:
+          [
+            "Familial Hypercholesterolemia",
+            "genetic analysis",
+            "Mexican population",
+            "genetic counseling",
+          ]
+
+      - type: "Póster"
+        title: "Reto CAMDA: Una exploración de IA y ML aplicado a diabetes"
+        authors: "Santana-Quinteros, D., Tripp, J., Figueroa, K., Selem, N., & Lopez-Pineda, A."
+        date: "2024"
+        event: "1er Congreso de Salud Digital UNAM"
+        location: "Coyoacan, Mexico City, México"
+        keywords: ["AI", "machine learning", "diabetes", "digital health"]
+
+      - type: "Póster"
+        title: "Construyendo un repositorio institucional, interoperable y digital para facilitar la investigación de DM2"
+        authors: "Tripp, J., Rodríguez Morán, M. F., Quiroz Armada, P. S., Alvarez Aguilar, C., Gómez Garcia, A., & López Pineda, A."
+        date: "2024"
+        event: "1er Congreso de Salud Digital UNAM"
+        location: "Coyoacan, Mexico City, México"
+        keywords:
+          ["DM2", "digital repository", "interoperability", "health research"]
+
+      - type: "Póster"
+        title: "DiabetIA, un recurso a partir de datos del mundo real para emular ensayos clínicos en México"
+        authors: "Rodríguez Morán, M. F., Alvarez Aguilar, C., López Pineda, A., Tripp Gudiño, J., & Gómez García, A."
+        date: "2024"
+        event: "1er Congreso de Salud Digital UNAM"
+        location: "Coyoacan, Mexico City, México"
+        keywords: ["real-world data", "clinical trials", "DiabetIA", "Mexico"]
+
+      - type: "Artículo de Divulgación"
+        title: "Si eres diabético, cuida tus pies"
+        authors: "Flores-Álvarez, L. J., & Álvarez-Aguilar, C."
+        date: "2024"
+        journal: "Saber Mas"
+        issue: "13"
+        page: "5-12"
+        keywords: ["public health", "diabetes", "health education"]
+
+      - type: "Artículo de Divulgación"
+        title: "Neuropatía diabética: La enfermedad del «calcetín y guante»"
+        authors: "Cortés-Vieyra, R., & López-Pineda, A."
+        date: "2024"
+        journal: "Saber Mas"
+        issue: "13"
+        page: "13-21"
+        keywords: ["public health", "diabetes", "health education"]
+
+      - type: "Artículo de Divulgación"
+        title: "La diabetes mellitus tipo 2: ¿Cómo afecta al riñón?"
+        authors: "Zinzun-Ixta, G., & Rodríguez-Morán, M. F. "
+        date: "2024"
+        journal: "Saber Mas"
+        issue: "13"
+        page: "22-30"
+        keywords: ["public health", "diabetes", "health education"]
+
+      - type: "Pre-publicación"
+        title: "DiabetIA: Building Machine Learning Models for Type 2 Diabetes Complications"
+        authors: "Tripp J., Santana-Quinteros, D., Perez-Estrada, R., Rodriguez-Moran, M. F. ..., Flores-Garrido, M., Garcia-Velazquez, L.M., Figueroa-Mora, K.M., Gomez-Garcia, A., Alvarez-Aguilar, C., Lopez-Pineda, A."
+        date: "2023"
+        url: "https://doi.org/10.1101/2023.10.22.23297277"
+        keywords:
+          [
+            "machine learning",
+            "diabetes complications",
+            "predictive models",
+            "healthcare innovation",
+          ]
+
+      - type: "Póster"
+        title: "The Biobank of the Americas: An Exploration on a Direct-to-Consumer Genotyping Service for Latin America"
+        authors: "Salazar-Fernandez, EP; Quinto-Cortés, CD; Gonzalez-Arroyo, G;  Moreno Grau, S; Lopez-Pineda, A; Nava-Aguilar, MA; Moatamed, B; Lee, MT; Wall, J; Katsanis, N; Ioannidis, A; and Carlos D. Bustamante."
+        date: "2023"
+        event: "MexPopGen 6th edition"
+        location: "Cuernavaca, Mexico"
+        url: "https://drive.google.com/file/d/17600LCBALPnRl5BZ6z9Xft5rcaPRyucI/view"
+        keywords: ["biobank", "genotyping", "Latin America", "genetic testing"]
+
+      - type: "Póster"
+        title: "A framework to evaluate and validate polygenic risk models at scale"
+        authors: "Moreno Grau S., Vernekar M., Lopez-Pineda A., Nava-Aguilar M. A., Quinto-Cortés C., Moatamed B., Lee M., Yu Z., Numakura K., Matsuda Y., Wall J. D., Ioannidis A., Katsanis N., Takano T., Bustamante C."
+        date: "2023"
+        event: "Annual Meeting of The American Society of Human Genetics"
+        location: "Washington, DC"
+        keywords:
+          ["polygenic risk", "genetic models", "validation", "scalability"]
+
+      - type: "Presentación Oral"
+        title: "Assessment of polygenic risk score models across continental populations: a study in gout"
+        authors: "Nava-Aguilar, MA; Moreno-Grau, S; Lopez-Pineda, A; Wall, J; Salazar-Fernandez, EP; Quinto-Cortés, CD;  Gonzalez-Arroyo, G.; Moatamed, B; Lee, MT; Katsanis, N; Ioannidis, A; and Carlos D. Bustamante."
+        date: "2023"
+        event: "MexPopGen 6th edition"
+        page: "89"
+        url: "https://drive.google.com/file/d/17600LCBALPnRl5BZ6z9Xft5rcaPRyucI/view"
+        keywords:
+          [
+            "polygenic risk scores",
+            "gout",
+            "continental populations",
+            "genetic epidemiology",
+          ]
+
+      - type: "Resumen en Congreso"
+        title: "PGS-Explorer: A web-based meta-analysis tool for polygenic scores"
+        authors: "Lopez Pineda, A., Perez Estrada, R., Nava-Aguilar, M. A., Menchaca Mendez, A., Anaya-Muñoz, V. H., & Moreno-Grau, S."
+        date: "2023"
+        journal: "Journal of Clinical Oncology"
+        volume: "41"
+        issue: "16_suppl"
+        page: "e13538-e13538"
+        keywords:
+          [
+            "meta-analysis",
+            "polygenic scores",
+            "web tools",
+            "clinical oncology",
+          ]
+
+      - type: "Artículo de Investigación"
+        title: "Validating and automating learning of cardiometabolic polygenic risk scores from direct-to-consumer genetic and phenotypic data: implications for scaling precision health research"
+        authors: "Lopez-Pineda, A., Vernekar, M., …, Nava-Aguilar, M.A., Gonzalez-Arroyo, G., … & Bustamante, C. D."
+        date: "2022"
+        journal: "Human genomics, 16(1), 1-10"
+        keywords:
+          [
+            "cardiometabolic risk",
+            "polygenic risk scores",
+            "direct-to-consumer genetics",
+            "precision health",
+          ]

@@ -1,0 +1,120 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { getLocale, useTranslations } from "../i18n/utils";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+
+const email = "arturolp@enesmorelia.unam.mx";
+const linkedin = "https://www.linkedin.com/in/arturo-lopez-pineda/";
+const amphora = "https://amphora.health/";
+const orcid = "https://orcid.org/0000-0002-3409-1815";
+const scholar = "https://scholar.google.com/citations?user=qUYZhKEAAAAJ&hl=en&authuser=1";
+---
+
+<Layout title={t.people.title} description={t.people.description}>
+  <PageHeader eyebrow={t.people.eyebrow} title={t.people.title} description={t.people.description} />
+
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-10 rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 lg:grid-cols-[220px_1fr]">
+      <div class="flex flex-col items-center gap-4 lg:items-start">
+        <div class="h-40 w-40 overflow-hidden rounded-2xl bg-slate-blue/10">
+          <img src="/images/people/arturo-headshot.png" alt={t.people.piName} class="h-full w-full object-cover" />
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-widest text-ice">{t.people.piEyebrow}</p>
+        <h2 class="mt-1 text-2xl font-bold text-navy sm:text-3xl">{t.people.piName}</h2>
+        <p class="mt-1 text-sm text-slate-500">{t.people.piAffiliation}</p>
+        <p class="mt-4 max-w-3xl leading-relaxed text-slate-600">{t.people.piBio}</p>
+        <p class="mt-3 max-w-3xl leading-relaxed text-slate-600">{t.people.piCeoNote}</p>
+
+        <h3 class="mt-6 text-sm font-semibold uppercase tracking-widest text-ice">{t.people.educationHeading}</h3>
+        <ul class="mt-3 max-w-3xl space-y-1.5">
+          {
+            t.people.education.map((degree) => (
+              <li class="flex gap-2 text-sm leading-relaxed text-slate-600">
+                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-blue/40" />
+                {degree}
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a
+            href={`mailto:${email}`}
+            class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-blue transition-colors hover:border-slate-blue/40 hover:bg-slate-blue/5"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+              />
+            </svg>
+            {email}
+          </a>
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-blue transition-colors hover:border-slate-blue/40 hover:bg-slate-blue/5"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="3" />
+              <line x1="7.5" y1="10" x2="7.5" y2="16.5" />
+              <circle cx="7.5" cy="6.8" r="0.5" fill="currentColor" stroke="none" />
+              <path d="M12 16.5v-4a2.2 2.2 0 0 1 4.4 0v4" />
+              <line x1="12" y1="10" x2="12" y2="16.5" />
+            </svg>
+            {t.people.linkedinLabel}
+          </a>
+          <a
+            href={amphora}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-blue transition-colors hover:border-slate-blue/40 hover:bg-slate-blue/5"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 8c-1-2-1.3-4-.5-6" />
+              <path d="M12 8c1-1.6 1.3-3.5.6-5.4" />
+              <path d="M12 8c-1-1.6-1.3-3.5-.6-5.4" />
+              <ellipse cx="12" cy="16" rx="5.5" ry="6.5" />
+              <path d="M7.3 13c2.8 1.4 6.6 1.4 9.4 0" />
+              <path d="M7.3 19c2.8-1.4 6.6-1.4 9.4 0" />
+            </svg>
+            {t.people.amphoraLabel}
+          </a>
+          <a
+            href={orcid}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-blue transition-colors hover:border-slate-blue/40 hover:bg-slate-blue/5"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.25" />
+              <line x1="8.2" y1="10" x2="8.2" y2="16" />
+              <circle cx="8.2" cy="7.3" r="0.5" fill="currentColor" stroke="none" />
+              <path d="M11.4 8.3h2.1a3.7 3.7 0 0 1 0 7.4h-2.1z" />
+            </svg>
+            {t.people.orcidLabel}
+          </a>
+          <a
+            href={scholar}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-blue transition-colors hover:border-slate-blue/40 hover:bg-slate-blue/5"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m4.26 10.147 7.44 3.998 7.44-3.998M4.26 10.147 2 9l9.7-5.25L21.4 9l-2.26 1.147m-14.88 0v5.406a2.25 2.25 0 0 0 1.183 1.981l6 3.231a2.25 2.25 0 0 0 2.134 0l6-3.231a2.25 2.25 0 0 0 1.183-1.98v-5.407" />
+            </svg>
+            {t.people.scholarLabel}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

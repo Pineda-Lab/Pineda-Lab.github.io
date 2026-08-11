@@ -1,0 +1,282 @@
+{
+  "en": {
+    "meta": {
+      "siteName": "Pineda Lab",
+      "tagline": "AI in Health · Digital Health · Clinical Genomics",
+      "defaultDescription": "Pineda Lab is a research group at ENES Morelia, UNAM, working at the intersection of artificial intelligence, digital health, and clinical genomics."
+    },
+    "common": {
+      "skipToContent": "Skip to main content"
+    },
+    "nav": {
+      "home": "Home",
+      "teaching": "Teaching",
+      "people": "People",
+      "publications": "Publications",
+      "mainNavLabel": "Main navigation",
+      "toggleMenu": "Toggle navigation menu",
+      "langSwitchLabel": "Switch language"
+    },
+    "footer": {
+      "description": "Artificial Intelligence in Health, Digital Health, and Clinical Genomics at ENES Morelia, UNAM.",
+      "linksHeading": "Links",
+      "contactHeading": "Contact",
+      "rights": "All rights reserved.",
+      "privacyLabel": "Privacy Policy",
+      "termsLabel": "Terms & Conditions"
+    },
+    "home": {
+      "title": "Pineda Lab",
+      "subtitle": "Artificial Intelligence · Digital Health · Clinical Genomics",
+      "intro": "We are an academic group at the National School of Higher Studies, Morelia Campus (ENES Morelia), UNAM, led by Dr. Arturo López Pineda. Our work focuses on artificial intelligence in health, digital health tools, and clinical genomics, with the goal of improving diagnosis, treatment, and health equity.",
+      "campusPhotoAlt": "ENES Morelia campus",
+      "ctaPrimary": "Explore projects",
+      "ctaSecondary": "Get in touch",
+      "pillarsEyebrow": "Research Pillars",
+      "pillarsTitle": "Where we focus our work",
+      "pillars": [
+        {
+          "icon": "brain",
+          "title": "AI in Health",
+          "description": "Machine learning and AI systems that support clinical decision-making, diagnosis, and better health outcomes."
+        },
+        {
+          "icon": "device",
+          "title": "Digital Health",
+          "description": "Digital tools that extend the reach of healthcare, with a focus on usability and impact in Latin America."
+        },
+        {
+          "icon": "dna",
+          "title": "Clinical Genomics",
+          "description": "Computational methods to interpret genomic data and translate it into actionable insights for patient care and public health."
+        }
+      ]
+    },
+    "projects": {
+      "eyebrow": "What we're building",
+      "title": "Projects",
+      "description": "Research projects underway at the lab.",
+      "projectsList": [
+        {
+          "name": "DIABETIA",
+          "description": "Longitudinal study for the development of predictive models for chronic complications of type 2 diabetes mellitus."
+        },
+        {
+          "name": "MOWI",
+          "description": "Mobile and Wearable Health Interfaces."
+        }
+      ],
+      "githubLinkText": "See our open-source work on GitHub"
+    },
+    "teaching": {
+      "eyebrow": "In the classroom",
+      "title": "Teaching",
+      "description": "Courses taught across undergraduate programs at ENES Morelia, UNAM.",
+      "programs": [
+        {
+          "name": "Bachelor's in Information Technologies for Sciences",
+          "courses": [
+            { "name": "Digital Repositories", "terms": ["2024-2", "2025-2", "2026-2"] },
+            { "name": "Bioinformatics", "terms": ["2026-1"] },
+            { "name": "Data Mining", "terms": ["2027-1"] }
+          ]
+        },
+        {
+          "name": "Bachelor's in Business Administration",
+          "courses": [{ "name": "Information and Communication Technologies", "terms": ["2027-1"] }]
+        }
+      ]
+    },
+    "people": {
+      "eyebrow": "Who we are",
+      "title": "People",
+      "description": "Meet the Pineda Lab's team members.",
+      "piEyebrow": "Principal Investigator",
+      "piName": "Dr. Arturo López Pineda",
+      "piAffiliation": "Adjunct Professor, ENES Morelia, UNAM",
+      "piBio": "Dr. Arturo López Pineda leads the Pineda Lab at ENES Morelia, UNAM, where his research sits at the intersection of artificial intelligence and health. His work focuses on developing computational methods for clinical genomics, digital health tools, and AI systems that support better diagnosis, treatment, and health equity.",
+      "piCeoNote": "He is also CEO of Amphora Health, a health-tech company building AI-driven clinical and genomic data platforms.",
+      "educationHeading": "Education",
+      "education": [
+        "Postdoctoral fellowship in Biomedical Data Science and Genetics, Stanford University",
+        "PhD and MS in Biomedical Informatics, University of Pittsburgh",
+        "MS in Artificial Intelligence, Tecnológico de Monterrey",
+        "BS in Computer Science, Tecnológico de Monterrey"
+      ],
+      "linkedinLabel": "LinkedIn",
+      "amphoraLabel": "Amphora Health",
+      "orcidLabel": "ORCID",
+      "scholarLabel": "Google Scholar"
+    },
+    "visit": {
+      "heading": "ENES Morelia",
+      "description": "ENES Morelia (Escuela Nacional de Estudios Superiores, Unidad Morelia) is a satellite campus of UNAM in Morelia, Michoacán, extending the university's academic and research programs beyond Mexico City with undergraduate and graduate offerings across multiple disciplines.",
+      "mapTitle": "ENES Morelia, UNAM location",
+      "directionsText": "Get directions"
+    },
+    "publications": {
+      "filterYear": "Year",
+      "filterType": "Type",
+      "filterAll": "All",
+      "emptyState": "No publications match these filters.",
+      "resultsLabel": "publications shown",
+      "viewPublicationLabel": "View publication"
+    },
+    "legal": {
+      "privacy": {
+        "title": "Privacy Policy",
+        "paragraphs": [
+          "Pineda Lab (ENES Morelia, UNAM) does not collect personal data through this website beyond what you voluntarily send by email.",
+          "This site embeds a Google Maps view on the Home page, which may set cookies per Google's own policy. We do not use analytics or advertising trackers."
+        ]
+      },
+      "terms": {
+        "title": "Terms & Conditions",
+        "paragraphs": [
+          "Content on this site is provided for informational purposes about the Pineda Lab's research and teaching activities.",
+          "Unless noted otherwise, text and media are © Pineda Lab, ENES Morelia, UNAM."
+        ]
+      }
+    }
+  },
+  "es": {
+    "meta": {
+      "siteName": "Pineda Lab",
+      "tagline": "IA en Salud · Salud Digital · Genómica Clínica",
+      "defaultDescription": "El Pineda Lab es un grupo de investigación de la ENES Morelia, UNAM, que trabaja en la intersección entre la inteligencia artificial, la salud digital y la genómica clínica."
+    },
+    "common": {
+      "skipToContent": "Saltar al contenido principal"
+    },
+    "nav": {
+      "home": "Inicio",
+      "teaching": "Docencia",
+      "people": "Personas",
+      "publications": "Publicaciones",
+      "mainNavLabel": "Navegación principal",
+      "toggleMenu": "Alternar menú de navegación",
+      "langSwitchLabel": "Cambiar idioma"
+    },
+    "footer": {
+      "description": "Inteligencia Artificial en Salud, Salud Digital y Genómica Clínica en la ENES Morelia, UNAM.",
+      "linksHeading": "Enlaces",
+      "contactHeading": "Contacto",
+      "rights": "Todos los derechos reservados.",
+      "privacyLabel": "Política de Privacidad",
+      "termsLabel": "Términos y Condiciones"
+    },
+    "home": {
+      "title": "Pineda Lab",
+      "subtitle": "Inteligencia Artificial · Salud Digital · Genómica Clínica",
+      "intro": "Somos un grupo académico de la Escuela Nacional de Estudios Superiores, Unidad Morelia (ENES Morelia), UNAM, dirigido por el Dr. Arturo López Pineda. Nuestro trabajo se enfoca en inteligencia artificial en salud, herramientas de salud digital y genómica clínica, con el objetivo de mejorar el diagnóstico, el tratamiento y la equidad en salud.",
+      "campusPhotoAlt": "Campus de la ENES Morelia",
+      "ctaPrimary": "Ver proyectos",
+      "ctaSecondary": "Contáctanos",
+      "pillarsEyebrow": "Líneas de Investigación",
+      "pillarsTitle": "En qué enfocamos nuestro trabajo",
+      "pillars": [
+        {
+          "icon": "brain",
+          "title": "IA en Salud",
+          "description": "Sistemas de aprendizaje automático e inteligencia artificial que apoyan la toma de decisiones clínicas, el diagnóstico y mejores resultados en salud."
+        },
+        {
+          "icon": "device",
+          "title": "Salud Digital",
+          "description": "Herramientas digitales que amplían el alcance de la atención médica, con enfoque en usabilidad e impacto en Latinoamérica."
+        },
+        {
+          "icon": "dna",
+          "title": "Genómica Clínica",
+          "description": "Métodos computacionales para interpretar datos genómicos y traducirlos en información útil para la atención de pacientes y la salud pública."
+        }
+      ]
+    },
+    "projects": {
+      "eyebrow": "Lo que estamos construyendo",
+      "title": "Proyectos",
+      "description": "Proyectos de investigación en curso en el laboratorio.",
+      "projectsList": [
+        {
+          "name": "DIABETIA",
+          "description": "Estudio longitudinal para el desarrollo de modelos predictivos de complicaciones crónicas de la diabetes mellitus tipo 2."
+        },
+        {
+          "name": "MOWI",
+          "description": "Interfaces Móviles y Portátiles para la Salud."
+        }
+      ],
+      "githubLinkText": "Consulta nuestro trabajo de código abierto en GitHub"
+    },
+    "teaching": {
+      "eyebrow": "En el aula",
+      "title": "Docencia",
+      "description": "Cursos impartidos en distintas licenciaturas de la ENES Morelia, UNAM.",
+      "programs": [
+        {
+          "name": "Licenciatura en Tecnologías para la Información en Ciencias",
+          "courses": [
+            { "name": "Repositorios Digitales", "terms": ["2024-2", "2025-2", "2026-2"] },
+            { "name": "Bioinformática", "terms": ["2026-1"] },
+            { "name": "Minería de Datos", "terms": ["2027-1"] }
+          ]
+        },
+        {
+          "name": "Licenciatura en Administración",
+          "courses": [{ "name": "Tecnologías de la Información y Comunicación", "terms": ["2027-1"] }]
+        }
+      ]
+    },
+    "people": {
+      "eyebrow": "Quiénes somos",
+      "title": "Personas",
+      "description": "Conoce al equipo del Pineda Lab.",
+      "piEyebrow": "Investigador Principal",
+      "piName": "Dr. Arturo López Pineda",
+      "piAffiliation": "Profesor Adjunto, ENES Morelia, UNAM",
+      "piBio": "El Dr. Arturo López Pineda dirige el Pineda Lab en la ENES Morelia, UNAM, donde su investigación se ubica en la intersección entre la inteligencia artificial y la salud. Su trabajo se centra en desarrollar métodos computacionales para genómica clínica, herramientas de salud digital y sistemas de IA que apoyen un mejor diagnóstico, tratamiento y equidad en salud.",
+      "piCeoNote": "También es director general (CEO) de Amphora Health, una empresa de tecnología en salud que desarrolla plataformas de datos clínicos y genómicos impulsadas por IA.",
+      "educationHeading": "Formación Académica",
+      "education": [
+        "Estancia posdoctoral en Ciencia de Datos Biomédicos y Genética, Universidad de Stanford",
+        "Doctorado y Maestría en Informática Biomédica, Universidad de Pittsburgh",
+        "Maestría en Inteligencia Artificial, Tecnológico de Monterrey",
+        "Licenciatura en Ciencias de la Computación, Tecnológico de Monterrey"
+      ],
+      "linkedinLabel": "LinkedIn",
+      "amphoraLabel": "Amphora Health",
+      "orcidLabel": "ORCID",
+      "scholarLabel": "Google Scholar"
+    },
+    "visit": {
+      "heading": "ENES Morelia",
+      "description": "La ENES Morelia (Escuela Nacional de Estudios Superiores, Unidad Morelia) es un campus foráneo de la UNAM en Morelia, Michoacán, que extiende los programas académicos y de investigación de la universidad más allá de la Ciudad de México, con oferta de licenciatura y posgrado en distintas disciplinas.",
+      "mapTitle": "Ubicación de la ENES Morelia, UNAM",
+      "directionsText": "Cómo llegar"
+    },
+    "publications": {
+      "filterYear": "Año",
+      "filterType": "Tipo",
+      "filterAll": "Todos",
+      "emptyState": "No hay publicaciones que coincidan con estos filtros.",
+      "resultsLabel": "publicaciones mostradas",
+      "viewPublicationLabel": "Ver publicación"
+    },
+    "legal": {
+      "privacy": {
+        "title": "Política de Privacidad",
+        "paragraphs": [
+          "Pineda Lab (ENES Morelia, UNAM) no recopila datos personales a través de este sitio web, más allá de lo que usted envíe voluntariamente por correo electrónico.",
+          "Este sitio incluye un mapa de Google Maps en la página de Inicio, el cual puede establecer cookies conforme a la política de Google. No utilizamos herramientas de análisis ni rastreadores publicitarios."
+        ]
+      },
+      "terms": {
+        "title": "Términos y Condiciones",
+        "paragraphs": [
+          "El contenido de este sitio se proporciona con fines informativos sobre las actividades de investigación y docencia del Pineda Lab.",
+          "Salvo que se indique lo contrario, el texto y los medios son © Pineda Lab, ENES Morelia, UNAM."
+        ]
+      }
+    }
+  }
+}

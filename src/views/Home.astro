@@ -1,0 +1,143 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import { getLocale, useTranslations } from "../i18n/utils";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+
+const email = "arturolp@enesmorelia.unam.mx";
+const address =
+  "ENES Morelia, UNAM, Antigua Carretera a Pátzcuaro No. 8701, Ex Hacienda de San José de la Huerta, 58190 Morelia, Michoacán, México";
+const mapsQuery = encodeURIComponent(address);
+---
+
+<Layout title={t.home.title} description={t.meta.defaultDescription}>
+  <section class="relative overflow-hidden bg-navy text-white">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--color-slate-blue)_0%,_transparent_55%)] opacity-70"></div>
+    <div class="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
+      <div class="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div class="max-w-3xl">
+          <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+            {t.home.title}
+          </h1>
+          <p class="mt-2 text-lg font-medium text-ice sm:text-xl">
+            {t.home.subtitle}
+          </p>
+          <p class="mt-6 max-w-2xl text-balance text-lg leading-relaxed text-slate-300">
+            {t.home.intro}
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              class="rounded-full bg-ice px-6 py-3 text-sm font-semibold text-navy transition-transform hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              {t.home.ctaPrimary}
+            </a>
+            <a
+              href={`mailto:${email}`}
+              class="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              {t.home.ctaSecondary}
+            </a>
+          </div>
+        </div>
+
+        <div class="relative mb-8 lg:mb-0">
+          <div class="overflow-hidden rounded-3xl border border-white/10 shadow-xl">
+            <img
+              src="/images/campus/enes-morelia.jpg"
+              alt={t.home.campusPhotoAlt}
+              class="aspect-[4/3] w-full object-cover"
+            />
+          </div>
+          <div class="absolute -bottom-8 -left-8 rounded-2xl bg-white p-4 shadow-lg">
+            <img src="/images/logos/logo-enes-morelia.png" alt="ENES Morelia" class="h-16 w-auto sm:h-20" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold uppercase tracking-widest text-ice">{t.home.pillarsEyebrow}</p>
+      <h2 class="mt-2 text-balance text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+        {t.home.pillarsTitle}
+      </h2>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        t.home.pillars.map((pillar) => (
+          <FeatureCard icon={pillar.icon as "brain" | "device" | "dna"} title={pillar.title} description={pillar.description} />
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="projects" class="scroll-mt-20 bg-white">
+    <div class="mx-auto max-w-6xl px-6 py-20">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-ice">{t.projects.eyebrow}</p>
+        <h2 class="mt-2 text-balance text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+          {t.projects.title}
+        </h2>
+        <p class="mt-3 text-slate-600">{t.projects.description}</p>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2">
+        {
+          t.projects.projectsList.map((project) => (
+            <div class="rounded-2xl border border-slate-200 p-6">
+              <h3 class="font-semibold text-navy">{project.name}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">{project.description}</p>
+            </div>
+          ))
+        }
+      </div>
+      <a
+        href="https://github.com/Pineda-Lab"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 inline-block text-sm font-medium text-slate-blue hover:text-ice"
+      >
+        {t.projects.githubLinkText}
+      </a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="max-w-2xl">
+      <h2 class="text-balance text-3xl font-bold tracking-tight text-navy sm:text-4xl">{t.visit.heading}</h2>
+      <p class="mt-3 text-slate-600">{t.visit.description}</p>
+    </div>
+    <div class="mt-8 grid gap-8 lg:grid-cols-2">
+      <div class="overflow-hidden rounded-2xl border border-slate-200">
+        <iframe
+          title={t.visit.mapTitle}
+          src={`https://www.google.com/maps?q=${mapsQuery}&output=embed`}
+          class="h-72 w-full sm:h-full"
+          style="border:0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div class="flex flex-col justify-center">
+        <p class="text-slate-700">{address}</p>
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${mapsQuery}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-slate-blue hover:text-ice"
+        >
+          {t.visit.directionsText}
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414Z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

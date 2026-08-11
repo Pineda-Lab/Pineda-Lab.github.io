@@ -1,0 +1,244 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import research from "../data/research.yaml";
+import { getLocale, useTranslations } from "../i18n/utils";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const data = research[locale];
+
+const highlightType = locale === "es" ? "Artículo de Investigación" : "Research Article";
+
+const publications = [...data.content.publications].sort((a: any, b: any) => Number(b.date) - Number(a.date));
+
+const years = [...new Set(publications.map((pub: any) => pub.date))].sort((a: any, b: any) => Number(b) - Number(a));
+const types = [...new Set(publications.map((pub: any) => pub.type))].sort();
+
+const yearCounts = new Map<string, number>();
+const typeCounts = new Map<string, number>();
+for (const pub of publications) {
+  yearCounts.set(pub.date, (yearCounts.get(pub.date) ?? 0) + 1);
+  typeCounts.set(pub.type, (typeCounts.get(pub.type) ?? 0) + 1);
+}
+---
+
+<Layout title={t.nav.publications} description={data.text}>
+  <PageHeader title={t.nav.publications} description={data.text} />
+
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="space-y-4 rounded-2xl bg-slate-50 p-4 sm:p-6">
+      <div class="flex flex-wrap items-center gap-2" role="group" aria-label={t.publications.filterYear}>
+        <span class="text-xs font-semibold uppercase tracking-wide text-slate-500">{t.publications.filterYear}</span>
+        <button
+          type="button"
+          data-filter-year="all"
+          aria-pressed="true"
+          class="filter-year-btn rounded-full border border-slate-blue bg-slate-blue px-3 py-1.5 text-sm font-medium text-white transition-colors"
+        >
+          {t.publications.filterAll} ({publications.length})
+        </button>
+        {
+          years.map((year: string) => (
+            <button
+              type="button"
+              data-filter-year={year}
+              aria-pressed="false"
+              class="filter-year-btn rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-navy/80 transition-colors hover:border-slate-blue/40 hover:text-slate-blue"
+            >
+              {year} ({yearCounts.get(year)})
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2" role="group" aria-label={t.publications.filterType}>
+        <span class="text-xs font-semibold uppercase tracking-wide text-slate-500">{t.publications.filterType}</span>
+        <button
+          type="button"
+          data-filter-type="all"
+          aria-pressed="true"
+          class="filter-type-btn rounded-full border border-slate-blue bg-slate-blue px-3 py-1.5 text-sm font-medium text-white transition-colors"
+        >
+          {t.publications.filterAll} ({publications.length})
+        </button>
+        {
+          types.map((type: string) => (
+            <button
+              type="button"
+              data-filter-type={type}
+              aria-pressed="false"
+              class="filter-type-btn rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-navy/80 transition-colors hover:border-slate-blue/40 hover:text-slate-blue"
+            >
+              {type} ({typeCounts.get(type)})
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <p id="results-count" class="mt-6 text-sm text-slate-500">
+      {publications.length} {t.publications.resultsLabel}
+    </p>
+
+    <ul class="mt-4 space-y-4">
+      {
+        publications.map((pub: any) => {
+          const isHighlighted = pub.type === highlightType;
+          return (
+            <li
+              class:list={[
+                "publication-item rounded-2xl border p-6 transition-shadow hover:shadow-md",
+                isHighlighted ? "border-l-4 border-slate-blue/30 bg-slate-blue/5" : "border-slate-200 bg-white",
+              ]}
+              data-year={pub.date}
+              data-type={pub.type}
+            >
+              <div class="flex flex-wrap items-center gap-2">
+                <span
+                  class:list={[
+                    "rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide",
+                    isHighlighted ? "bg-slate-blue text-white" : "bg-slate-blue/10 text-slate-blue",
+                  ]}
+                >
+                  {pub.type}
+                </span>
+                <span class="text-sm text-slate-500">{pub.date}</span>
+              </div>
+              <h3 class="mt-2 text-lg font-semibold leading-snug text-navy">{pub.title}</h3>
+
+              <details class="group mt-3">
+                <summary class="flex cursor-pointer list-none items-center gap-1.5 text-sm font-medium text-slate-blue hover:text-ice [&::-webkit-details-marker]:hidden">
+                  {data.details_title}
+                  <svg class="h-4 w-4 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </summary>
+                <dl class="mt-3 space-y-3 border-t border-slate-100 pt-3 text-sm">
+                  <div>
+                    <dt class="font-semibold text-slate-500">{data.details_authors}</dt>
+                    <dd class="mt-1 text-slate-600">{pub.authors}</dd>
+                  </div>
+                  {pub.journal && (
+                    <div>
+                      <dt class="font-semibold text-slate-500">{data.details_journal}</dt>
+                      <dd class="mt-1 text-slate-600">
+                        {pub.journal}
+                        {pub.volume && `, vol. ${pub.volume}`}
+                        {pub.issue && ` (${pub.issue})`}
+                        {pub.page && `, p. ${pub.page}`}
+                      </dd>
+                    </div>
+                  )}
+                  {pub.event && (
+                    <div>
+                      <dt class="font-semibold text-slate-500">{data.details_event}</dt>
+                      <dd class="mt-1 text-slate-600">
+                        {pub.event}
+                        {pub.location && ` — ${pub.location}`}
+                        {pub.page && `, p. ${pub.page}`}
+                      </dd>
+                    </div>
+                  )}
+                  <div>
+                    <dt class="font-semibold text-slate-500">{data.details_date}</dt>
+                    <dd class="mt-1 text-slate-600">{pub.date}</dd>
+                  </div>
+                  {pub.keywords?.length > 0 && (
+                    <div>
+                      <dt class="font-semibold text-slate-500">{data.details_keywords}</dt>
+                      <dd class="mt-2 flex flex-wrap gap-2">
+                        {pub.keywords.map((keyword: string) => (
+                          <span class="rounded-full bg-slate-blue/10 px-3 py-1 text-xs font-medium text-slate-blue">{keyword}</span>
+                        ))}
+                      </dd>
+                    </div>
+                  )}
+                  {pub.url && (
+                    <div>
+                      <a
+                        href={pub.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-1 font-medium text-slate-blue hover:text-ice"
+                      >
+                        {t.publications.viewPublicationLabel}
+                        <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path
+                            fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414Z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  )}
+                </dl>
+              </details>
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <p id="empty-state" class="mt-10 hidden text-center text-slate-500">{t.publications.emptyState}</p>
+  </section>
+</Layout>
+
+<script>
+  const yearButtons = document.querySelectorAll<HTMLButtonElement>(".filter-year-btn");
+  const typeButtons = document.querySelectorAll<HTMLButtonElement>(".filter-type-btn");
+  const items = document.querySelectorAll<HTMLLIElement>(".publication-item");
+  const emptyState = document.getElementById("empty-state");
+  const resultsCount = document.getElementById("results-count");
+  const resultsSuffix = resultsCount?.textContent?.replace(/^\d+\s*/, "") ?? "";
+
+  let currentYear = "all";
+  let currentType = "all";
+
+  function setActive(buttons: NodeListOf<HTMLButtonElement>, activeButton: HTMLButtonElement) {
+    buttons.forEach((btn) => {
+      const active = btn === activeButton;
+      btn.setAttribute("aria-pressed", String(active));
+      btn.classList.toggle("bg-slate-blue", active);
+      btn.classList.toggle("text-white", active);
+      btn.classList.toggle("border-slate-blue", active);
+      btn.classList.toggle("border-slate-200", !active);
+      btn.classList.toggle("bg-white", !active);
+      btn.classList.toggle("text-navy/80", !active);
+    });
+  }
+
+  function applyFilters() {
+    let visibleCount = 0;
+    items.forEach((item) => {
+      const matchesYear = currentYear === "all" || item.dataset.year === currentYear;
+      const matchesType = currentType === "all" || item.dataset.type === currentType;
+      const matches = matchesYear && matchesType;
+      item.classList.toggle("hidden", !matches);
+      if (matches) visibleCount += 1;
+    });
+    emptyState?.classList.toggle("hidden", visibleCount !== 0);
+    if (resultsCount) resultsCount.textContent = `${visibleCount} ${resultsSuffix}`;
+  }
+
+  yearButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      currentYear = button.dataset.filterYear ?? "all";
+      setActive(yearButtons, button);
+      applyFilters();
+    });
+  });
+
+  typeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      currentType = button.dataset.filterType ?? "all";
+      setActive(typeButtons, button);
+      applyFilters();
+    });
+  });
+</script>

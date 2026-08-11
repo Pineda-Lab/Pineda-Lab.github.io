@@ -1,0 +1,56 @@
+---
+import "@fontsource-variable/inter";
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { getLocale, useTranslations } from "../i18n/utils";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+
+const { title, description = t.meta.defaultDescription } = Astro.props;
+
+const pageTitle = title === t.meta.siteName ? title : `${title} · ${t.meta.siteName}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={locale} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+  </head>
+  <body class="flex min-h-screen flex-col bg-surface text-navy antialiased">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-slate-blue focus:px-4 focus:py-2 focus:text-white"
+    >
+      {t.common.skipToContent}
+    </a>
+    <Navbar />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,9 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "h-9 w-9" } = Astro.props;
+---
+
+<img src="/images/logos/pinedalab-logo.png" alt="Pineda Lab" class:list={[className, "rounded-full object-cover"]} />

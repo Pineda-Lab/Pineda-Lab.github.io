@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { getLocale, useTranslations } from "../i18n/utils";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+---
+
+<Layout title={t.legal.privacy.title}>
+  <PageHeader title={t.legal.privacy.title} />
+
+  <section class="mx-auto max-w-3xl space-y-4 px-6 py-16 text-slate-600">
+    {t.legal.privacy.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+  </section>
+</Layout>
