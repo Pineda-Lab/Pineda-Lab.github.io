@@ -1,0 +1,36 @@
+---
+interface Props {
+  paragraphs: string[];
+}
+
+const { paragraphs } = Astro.props;
+
+// The last two entries are always the "Last updated" line and the signature.
+const bodyParagraphs = paragraphs.slice(0, -2);
+const closingLines = paragraphs.slice(-2);
+
+// Numbered clauses look like "FIRST. Title. Body…" (en) or "PRIMERA. Título.- Cuerpo…" (es).
+// Everything else (the intro paragraph) falls through and renders as a plain paragraph.
+const clausePattern = /^([A-ZÁÉÍÓÚÑ]+\.\s+[^.]+\.-?)\s*(.*)$/;
+---
+
+<div class="space-y-5 leading-relaxed text-slate-600">
+  {
+    bodyParagraphs.map((paragraph) => {
+      const match = paragraph.match(clausePattern);
+      if (match) {
+        const [, lead, rest] = match;
+        return (
+          <p>
+            <strong class="font-semibold text-navy">{lead}</strong> {rest}
+          </p>
+        );
+      }
+      return <p>{paragraph}</p>;
+    })
+  }
+</div>
+
+<div class="mt-8 space-y-1 border-t border-slate-200 pt-6 text-sm text-slate-500">
+  {closingLines.map((line) => <p>{line}</p>)}
+</div>
