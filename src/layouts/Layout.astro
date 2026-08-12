@@ -4,98 +4,129 @@ import "../styles/global.css";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-import { getLocale, useTranslations, locales, defaultLocale } from "../i18n/utils";
+import {
+    getLocale,
+    useTranslations,
+    locales,
+    defaultLocale,
+} from "../i18n/utils";
 
 interface Props {
-  title: string;
-  description?: string;
-  noindex?: boolean;
+    title: string;
+    description?: string;
+    noindex?: boolean;
 }
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 
-const { title, description = t.meta.defaultDescription, noindex = false } = Astro.props;
+const {
+    title,
+    description = t.meta.defaultDescription,
+    noindex = false,
+} = Astro.props;
 
-const pageTitle = title === t.meta.siteName ? title : `${title} · ${t.meta.siteName}`;
+const pageTitle =
+    title === t.meta.siteName ? title : `${title} · ${t.meta.siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL("/images/og/og-image.jpg", Astro.site);
 
 const basePath = Astro.url.pathname.replace(/^\/es(\/|$)/, "/");
 const alternateLinks = locales.map((loc) => ({
-  hreflang: loc,
-  href: new URL(getRelativeLocaleUrl(loc, basePath), Astro.site).toString(),
+    hreflang: loc,
+    href: new URL(getRelativeLocaleUrl(loc, basePath), Astro.site).toString(),
 }));
-const defaultHrefLang = new URL(getRelativeLocaleUrl(defaultLocale, basePath), Astro.site).toString();
+const defaultHrefLang = new URL(
+    getRelativeLocaleUrl(defaultLocale, basePath),
+    Astro.site,
+).toString();
 
 const ogLocale = locale === "es" ? "es_MX" : "en_US";
 const ogLocaleAlternate = locale === "es" ? "en_US" : "es_MX";
 
 const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "ResearchOrganization",
-  name: "Pineda Lab",
-  url: "https://pineda-lab.github.io",
-  logo: new URL("/images/logos/pinedalab-logo.png", Astro.site).toString(),
-  description: t.meta.defaultDescription,
-  parentOrganization: {
-    "@type": "CollegeOrUniversity",
-    name: "Escuela Nacional de Estudios Superiores, Unidad Morelia, UNAM",
-    url: "https://www.enesmorelia.unam.mx",
-  },
-  sameAs: ["https://github.com/Pineda-Lab"],
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    name: "Pineda Lab",
+    url: "https://pineda-lab.github.io",
+    logo: new URL("/images/logos/pinedalab-logo.png", Astro.site).toString(),
+    description: t.meta.defaultDescription,
+    parentOrganization: {
+        "@type": "CollegeOrUniversity",
+        name: "Escuela Nacional de Estudios Superiores, Unidad Morelia, UNAM",
+        url: "https://www.enesmorelia.unam.mx",
+    },
+    sameAs: ["https://github.com/Pineda-Lab"],
 };
 ---
 
 <!doctype html>
 <html lang={locale} class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0f172a" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="canonical" href={canonicalURL} />
-    {
-      alternateLinks.map((alt) => (
-        <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
-      ))
-    }
-    <link rel="alternate" hreflang="x-default" href={defaultHrefLang} />
-    <meta name="generator" content={Astro.generator} />
-    {noindex && <meta name="robots" content="noindex, follow" />}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#0f172a" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="canonical" href={canonicalURL} />
+        {
+            alternateLinks.map((alt) => (
+                <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+            ))
+        }
+        <link rel="alternate" hreflang="x-default" href={defaultHrefLang} />
+        <meta name="generator" content={Astro.generator} />
+        {noindex && <meta name="robots" content="noindex, follow" />}
 
-    <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={description} />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={t.meta.siteName} />
-    <meta property="og:locale" content={ogLocale} />
-    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={ogImageURL} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImageURL} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={t.meta.siteName} />
+        <meta property="og:locale" content={ogLocale} />
+        <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:image" content={ogImageURL} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImageURL} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-  </head>
-  <body class="flex min-h-screen flex-col bg-surface text-navy antialiased">
-    <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-slate-blue focus:px-4 focus:py-2 focus:text-white"
-    >
-      {t.common.skipToContent}
-    </a>
-    <Navbar />
-    <main id="main-content" class="flex-1">
-      <slot />
-    </main>
-    <Footer />
-  </body>
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(organizationSchema)}
+        />
+        <!-- Google tag (gtag.js) -->
+        <script
+            is:inline
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-E26DM8MMDF"
+        ></script>
+        <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-E26DM8MMDF");
+        </script>
+    </head>
+    <body class="flex min-h-screen flex-col bg-surface text-navy antialiased">
+        <a
+            href="#main-content"
+            class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-slate-blue focus:px-4 focus:py-2 focus:text-white"
+        >
+            {t.common.skipToContent}
+        </a>
+        <Navbar />
+        <main id="main-content" class="flex-1">
+            <slot />
+        </main>
+        <Footer />
+    </body>
 </html>
