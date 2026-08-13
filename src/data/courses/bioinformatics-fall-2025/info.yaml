@@ -1,0 +1,152 @@
+en:
+  name: "Bioinformatics"
+  description: "A theoretical-practical course introducing students to the computational analysis of clinical genomic data. It covers bioinformatics tools, genetic databases, data formats and handling large datasets, variant analysis, monogenic and polygenic risk models (GWAS and PRS), and results visualization, integrating scripting in Python, R, and the command line. By the end, students will be able to build bioinformatics pipelines and interpret genetic data with applications in personalized medicine."
+  prerequisites: "Molecular biology (basic concepts of DNA, RNA, and genes); basic statistics (p-values and hypothesis testing); basic computer skills (file organization and operating systems); prior programming experience in Python, R, or another language is required to keep up with the course."
+  classroomUrl: "https://classroom.google.com/c/Nzg4NzU5MDYzMTAz?cjc=xaz7p7jl"
+  syllabus: "syllabus.pdf"
+  logistics:
+    schedule: "Mondays and Wednesdays, 4:00–6:00 PM"
+    location: "Room IAT-06"
+  staff:
+    - name: "Dr. Arturo López Pineda"
+      role: "Instructor"
+      email: "arturolp@enesmorelia.unam.mx"
+      photo: "/images/people/arturo-headshot.png"
+  topics:
+    - title: "Fundamentals of Bioinformatics"
+      subtopics:
+        - "History and applications"
+        - "Fundamentals of Molecular Biology"
+        - "Sequencing technologies such as NGS and Long Read Sequencing"
+        - "Current challenges, bioethics, and privacy"
+    - title: "Classical Bioinformatics"
+      subtopics:
+        - "Sequence alignment"
+        - "Programming Challenge 1: Running BLAST"
+        - "Multiple alignment with Clustal Omega"
+        - "Automating searches and alignments"
+        - "Brief introduction to phylogenetics"
+        - "Programming Challenge 2: Building a Phylogenetic Tree"
+    - title: "Genomic Databases"
+      subtopics:
+        - "Genomic databases such as NCBI, Ensembl, and UCSC Genome Browser"
+        - "Variant databases such as dbSNP, dbVar, and GnomAD"
+        - "Clinical databases such as ClinVar and ClinGen"
+        - "Programming Challenge 3: Searching and Downloading Data"
+    - title: "Fundamentals of Computational Genomics"
+      subtopics:
+        - "Command line (Unix/Linux)"
+        - "Text utilities (grep, cut, AWK)"
+        - "Filtering and processing data with the CLI and scripting"
+        - "Data formats such as FASTA and VCF"
+        - "Programming Challenge 4: Working with AWK and bash"
+    - title: "Population Analysis"
+      subtopics:
+        - "Fundamentals of population genetics"
+        - "PCA for population structure"
+        - "Genomic data imputation"
+        - "Genomic phasing"
+        - "ADMIXTURE, STRUCTURE, NeuralAdmixture"
+        - "Programming Challenge 5: Population Ancestry Analysis"
+    - title: "Predictive Genomics"
+      subtopics:
+        - "Monogenic risk models"
+        - "Variant types (SNPs, indels, CNVs)"
+        - "Genome-wide association studies (GWAS)"
+        - "Polygenic Risk Score (PRS) models"
+        - "Programming Challenge 6: GWAS and PRS"
+  grading:
+    - component: "Biweekly Programming Challenges"
+      percentage: 80
+      description: "Hands-on programming exercises and real-data analysis aligned with the course topics. Each challenge is worth 12% of the final grade."
+    - component: "Final Theoretical-Practical Exam"
+      percentage: 20
+      description: "Written and practical evaluation at the end of the course, covering data interpretation, analysis, and key concepts in clinical bioinformatics."
+  policies:
+    - "Attendance carries no direct percentage weight in the final grade. However, a minimum of 80% attendance is required to be eligible for continuous assessment and the final ordinary exam."
+    - "All submitted work (assignments, presentations, and projects) must be original. Generative AI tools may be used only for research, brainstorming, or grammar review — not to draft the final content. The instructor reserves the right to request an in-person oral defense of any submitted work; if the student cannot demonstrate mastery of the topic or authorship of the text during that defense, the activity will be voided (a grade of zero)."
+  readings:
+    - label: "Mount, D. W. (2007). Bioinformatics: Sequence and Genome Analysis (2nd ed.). Cold Spring Harbor Laboratory Press."
+    - label: "Lesk, A. M. (2019). Introduction to Bioinformatics (5th ed.). Oxford University Press."
+    - label: "Xiong, J. (2020). Essential Bioinformatics (2nd ed.). Cambridge University Press."
+    - label: "Strachan, T., & Read, A. P. (2019). Human Molecular Genetics (5th ed.). Garland Science."
+    - label: "Feero, W. G., Guttmacher, A. E., & Collins, F. S. (Eds.). (2010). Genomic Medicine: A Primer. Cold Spring Harbor Laboratory Press."
+    - label: "Goodwin, S., McPherson, J. D., & McCombie, W. R. (2016). Next-Generation Sequencing: Establishing Biomarkers for Clinical Diagnostics. CRC Press."
+    - label: "Coon, S. L., & Boyle, J. (2015). Learning Python for Bioinformatics. O'Reilly Media."
+    - label: "Homer, N., & Ericsen, A. (2014). Bioinformatics with R Cookbook. Packt Publishing."
+es:
+  name: "Bioinformática"
+  description: "Curso teórico-práctico que introduce a los estudiantes en el análisis computacional de datos genómicos clínicos. Cubre herramientas de bioinformática, bases de datos genéticas, formatos y manejo de grandes volúmenes de datos, análisis de variantes, modelos de riesgo monogénico y poligénico (GWAS y PRS), y visualización de resultados, integrando scripting en Python, R y línea de comandos. Al finalizar, los estudiantes serán capaces de construir pipelines bioinformáticos y de interpretar datos genéticos con aplicaciones en medicina personalizada."
+  prerequisites: "Biología molecular (conceptos básicos sobre ADN, ARN y genes); estadística básica (incluyendo p-values y pruebas de hipótesis); manejo básico de computadoras (organización de archivos y uso de sistemas operativos); experiencia previa en Python, R u otros lenguajes es obligatoria para el seguimiento adecuado del curso."
+  classroomUrl: "https://classroom.google.com/c/Nzg4NzU5MDYzMTAz?cjc=xaz7p7jl"
+  syllabus: "syllabus.pdf"
+  logistics:
+    schedule: "Lunes y Miércoles, 4:00–6:00 PM"
+    location: "Salón IAT-06"
+  staff:
+    - name: "Dr. Arturo López Pineda"
+      role: "Profesor"
+      email: "arturolp@enesmorelia.unam.mx"
+      photo: "/images/people/arturo-headshot.png"
+  topics:
+    - title: "Fundamentos de Bioinformática"
+      subtopics:
+        - "Historia y aplicaciones"
+        - "Fundamentos de Biología Molecular"
+        - "Tecnologías de secuenciación como NGS y Long Read Sequencing"
+        - "Desafíos actuales, bioética y privacidad"
+    - title: "Bioinformática Clásica"
+      subtopics:
+        - "Alineación de secuencias"
+        - "Reto de Programación 1: Ejecutar BLAST"
+        - "Alineamiento múltiple con Clustal Omega"
+        - "Automatización de búsquedas y alineamientos"
+        - "Breve introducción a filogenia"
+        - "Reto de Programación 2: Construir Árbol Filogenético"
+    - title: "Bases de Datos Genómicas"
+      subtopics:
+        - "Bases de datos genómicas como NCBI, Ensembl y UCSC Genome Browser"
+        - "Bases de datos de variantes como dbSNP, dbVar y GnomAD"
+        - "Bases de datos clínicas como ClinVar y ClinGen"
+        - "Reto de Programación 3: Búsqueda y Descarga de Datos"
+    - title: "Fundamentos de Genómica Computacional"
+      subtopics:
+        - "Línea de comandos (Unix/Linux)"
+        - "Utilidades de texto (grep, cut, AWK)"
+        - "Filtrado y procesamiento de datos con CLI y scripting"
+        - "Formatos de datos como FASTA y VCF"
+        - "Reto de Programación 4: Manejo de AWK y bash"
+    - title: "Análisis Poblacional"
+      subtopics:
+        - "Fundamentos de genética poblacional"
+        - "PCA para estructura poblacional"
+        - "Imputación de datos genómicos"
+        - "Faseo de datos genómicos"
+        - "ADMIXTURE, STRUCTURE, NeuralAdmixture"
+        - "Reto de Programación 5: Análisis de Ancestría Poblacional"
+    - title: "Genómica Predictiva"
+      subtopics:
+        - "Modelos de riesgo monogénico"
+        - "Tipos de variantes (SNPs, indels, CNVs)"
+        - "Estudios de asociación genómica (GWAS)"
+        - "Modelos de Riesgo Poligénico (PRS)"
+        - "Reto de Programación 6: GWAS y PRS"
+  grading:
+    - component: "Retos de Programación Quincenales"
+      percentage: 80
+      description: "Desarrollo de ejercicios prácticos de programación y análisis de datos reales, alineados con los temas del curso. Cada reto equivale al 12% de la calificación final."
+    - component: "Examen Teórico-Práctico Final"
+      percentage: 20
+      description: "Evaluación escrita y práctica al final del curso, cubriendo interpretación de datos, análisis y conceptos clave de bioinformática clínica."
+  policies:
+    - "La asistencia no tiene un valor porcentual directo sobre la calificación final. Sin embargo, se requiere un mínimo del 80% de asistencia para tener derecho a la evaluación continua y al examen ordinario final."
+    - "Todos los trabajos entregados (tareas, presentaciones y proyectos) deben ser de autoría propia. El uso de herramientas de Inteligencia Artificial está permitido únicamente para búsqueda de información, lluvia de ideas, revisión gramatical, pero no para la redacción final del contenido. El profesor se reserva el derecho de solicitar una réplica oral presencial de cualquier trabajo entregado. Si el alumno no logra demostrar el dominio del tema o la autoría del texto durante la réplica, la actividad será anulada (calificación de 0)."
+  readings:
+    - label: "Mount, D. W. (2007). Bioinformatics: Sequence and Genome Analysis (2nd ed.). Cold Spring Harbor Laboratory Press."
+    - label: "Lesk, A. M. (2019). Introduction to Bioinformatics (5th ed.). Oxford University Press."
+    - label: "Xiong, J. (2020). Essential Bioinformatics (2nd ed.). Cambridge University Press."
+    - label: "Strachan, T., & Read, A. P. (2019). Human Molecular Genetics (5th ed.). Garland Science."
+    - label: "Feero, W. G., Guttmacher, A. E., & Collins, F. S. (Eds.). (2010). Genomic Medicine: A Primer. Cold Spring Harbor Laboratory Press."
+    - label: "Goodwin, S., McPherson, J. D., & McCombie, W. R. (2016). Next-Generation Sequencing: Establishing Biomarkers for Clinical Diagnostics. CRC Press."
+    - label: "Coon, S. L., & Boyle, J. (2015). Learning Python for Bioinformatics. O'Reilly Media."
+    - label: "Homer, N., & Ericsen, A. (2014). Bioinformatics with R Cookbook. Packt Publishing."

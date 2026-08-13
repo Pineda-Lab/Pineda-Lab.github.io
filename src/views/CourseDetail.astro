@@ -1,0 +1,376 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Card from "../components/Card.astro";
+import { getLocale, useTranslations } from "../i18n/utils";
+import { parseTerm, isCurrentTerm, splitCourseTermSlug } from "../utils/academicTerm";
+import { resolveCourseAsset } from "../utils/courseAssets";
+
+interface StaffMember {
+  name: string;
+  role: string;
+  email?: string;
+  photo?: string;
+}
+
+interface ReadingEntry {
+  label: string;
+  url?: string;
+}
+
+interface Topic {
+  title: string;
+  hours?: number;
+  subtopics?: string[];
+}
+
+interface CourseInfo {
+  name: string;
+  description: string;
+  prerequisites?: string;
+  classroomUrl: string;
+  syllabus: string;
+  logistics?: { schedule?: string; location?: string };
+  staff?: StaffMember[];
+  topics?: Topic[];
+  grading?: { component: string; percentage: number; description?: string }[];
+  policies?: string[];
+  readingsNote?: string;
+  readings?: ReadingEntry[];
+  project?: { title: string; description?: string };
+}
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+
+const courseTermParam = Astro.params.courseTerm!;
+const { term: termCode } = splitCourseTermSlug(courseTermParam)!;
+
+// Each course-semester is a folder under src/data/courses/<courseTermParam>/
+// holding info.yaml and any real files (syllabus PDF, staff photos, etc.) —
+// globbed rather than statically imported since the file set isn't known
+// ahead of time.
+const infoFiles = import.meta.glob<{ en: CourseInfo; es: CourseInfo }>("../data/courses/*/info.yaml", {
+  eager: true,
+});
+
+const infoEntry = Object.entries(infoFiles).find(([path]) => path.endsWith(`/${courseTermParam}/info.yaml`));
+const course = infoEntry![1][locale];
+
+const syllabusUrl = resolveCourseAsset(courseTermParam, course.syllabus);
+
+// A staff photo can be a filename colocated in this course's folder, or an
+// absolute path to a site-wide asset (e.g. the PI headshot already used on
+// the People page) — the leading "/" tells the two apart.
+function resolvePhoto(photo?: string): string | null {
+  if (!photo) return null;
+  return photo.startsWith("/") ? photo : resolveCourseAsset(courseTermParam, photo);
+}
+
+// "Dr. Arturo López Pineda" -> "AP"; abbreviated titles ("Dr.", "Lic.", ...)
+// are dropped so they don't end up contributing an initial themselves.
+function getInitials(name: string): string {
+  const words = name
+    .replace(/["'“”‘’]/g, "")
+    .split(/\s+/)
+    .filter((word) => word && !word.endsWith("."));
+  if (words.length === 0) return "";
+  const first = words[0][0];
+  const last = words[words.length - 1][0];
+  return (words.length > 1 ? first + last : first).toUpperCase();
+}
+
+const hasPrerequisites = Boolean(course.prerequisites);
+const hasLogistics = Boolean(course.logistics?.schedule || course.logistics?.location);
+const hasStaff = Boolean(course.staff?.length);
+const hasSyllabus = Boolean(syllabusUrl);
+const hasTopics = Boolean(course.topics?.length);
+const hasGrading = Boolean(course.grading?.length);
+const hasPolicies = Boolean(course.policies?.length);
+const hasReadings = Boolean(course.readings?.length);
+const hasProject = Boolean(course.project?.title);
+
+const navSections = [
+  { id: "info", label: t.teaching.navInfoLabel },
+  hasStaff && { id: "staff", label: t.teaching.staffLabel },
+  hasSyllabus && { id: "syllabus", label: t.teaching.navSyllabusLabel },
+  hasTopics && { id: "topics", label: t.teaching.navTopicsLabel },
+  hasGrading && { id: "grading", label: t.teaching.gradingLabel },
+  hasPolicies && { id: "policies", label: t.teaching.policiesLabel },
+  hasReadings && { id: "readings", label: t.teaching.readingsLabel },
+  hasProject && { id: "project", label: t.teaching.projectLabel },
+].filter((section): section is { id: string; label: string } => Boolean(section));
+
+const { season, year } = parseTerm(termCode);
+const seasonLabel = season === "fall" ? t.teaching.fallLabel : t.teaching.springLabel;
+const current = isCurrentTerm(termCode);
+
+const teachingHref = getRelativeLocaleUrl(locale, "/teaching");
+---
+
+<Layout title={`${course.name} — ${seasonLabel} ${year}`} description={course.description || t.teaching.description}>
+  <PageHeader eyebrow={`${seasonLabel} ${year} · ${termCode}`} title={course.name} description={course.description || undefined} />
+
+  <section class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
+    <nav
+      class="sticky top-20 z-40 -mx-6 border-b border-slate-200/70 bg-surface/95 px-6 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border"
+      aria-label={t.teaching.sectionNavLabel}
+    >
+      <div class="flex items-center gap-1.5 pt-2 text-sm">
+        <a href={teachingHref} class="shrink-0 text-slate-500 transition-colors hover:text-slate-blue">
+          &larr; {t.teaching.backLabel}
+        </a>
+        <span class="shrink-0 text-slate-300" aria-hidden="true">
+          /
+        </span>
+        <span class="min-w-0 truncate font-semibold text-navy">{course.name}</span>
+      </div>
+      <div class="flex gap-1 overflow-x-auto border-t border-slate-200/70 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mt-2 sm:border-t-0 sm:pt-0">
+        {
+          navSections.map((section) => (
+            <a
+              href={`#${section.id}`}
+              data-nav-section={section.id}
+              class="section-nav-link shrink-0 rounded-full px-3 py-1.5 text-sm font-medium text-navy/70 transition-colors hover:bg-slate-blue/10 hover:text-slate-blue"
+            >
+              {section.label}
+            </a>
+          ))
+        }
+      </div>
+    </nav>
+
+    <section id="info" data-course-section class="mt-6 scroll-mt-44">
+      <Card>
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 class="text-lg font-semibold text-navy">
+            {seasonLabel} {year} <span class="font-normal text-slate-500">· {termCode}</span>
+          </h2>
+          {current && (
+            <span class="rounded-full bg-slate-blue px-3 py-1 text-xs font-semibold text-white">
+              {t.teaching.currentLabel}
+            </span>
+          )}
+        </div>
+
+        {course.classroomUrl && (
+          <div class="mt-4">
+            <a
+              href={course.classroomUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block rounded-full bg-slate-blue/10 px-4 py-2 text-sm font-medium text-slate-blue transition-colors hover:bg-slate-blue/20"
+            >
+              {t.teaching.classroomLinkText}
+            </a>
+          </div>
+        )}
+
+        {hasPrerequisites && (
+          <div class="mt-6 border-t border-slate-200 pt-4">
+            <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-blue">
+              {t.teaching.prerequisitesLabel}
+            </h3>
+            <p class="mt-1 text-sm leading-relaxed text-slate-600">{course.prerequisites}</p>
+          </div>
+        )}
+
+        {hasLogistics && (
+          <dl class="mt-6 grid gap-3 border-t border-slate-200 pt-4 sm:grid-cols-2">
+            {course.logistics?.schedule && (
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  {t.teaching.meetingScheduleLabel}
+                </dt>
+                <dd class="mt-1 text-sm text-slate-600">{course.logistics.schedule}</dd>
+              </div>
+            )}
+            {course.logistics?.location && (
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">{t.teaching.locationLabel}</dt>
+                <dd class="mt-1 text-sm text-slate-600">{course.logistics.location}</dd>
+              </div>
+            )}
+          </dl>
+        )}
+      </Card>
+    </section>
+
+    {hasStaff && (
+      <section id="staff" data-course-section class="mt-10 scroll-mt-44">
+        <h2 class="text-xl font-bold text-navy">{t.teaching.staffLabel}</h2>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          {
+            course.staff?.map((member) => {
+              const photoUrl = resolvePhoto(member.photo);
+              return (
+                <Card class="flex items-center gap-4">
+                  {photoUrl ? (
+                    <img src={photoUrl} alt={member.name} class="h-16 w-16 shrink-0 rounded-2xl object-cover" />
+                  ) : (
+                    <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-slate-blue/10 text-lg font-semibold text-slate-blue">
+                      {getInitials(member.name)}
+                    </div>
+                  )}
+                  <div class="min-w-0">
+                    <p class="font-semibold text-navy">{member.name}</p>
+                    <p class="text-sm text-slate-500">{member.role}</p>
+                    {member.email && (
+                      <a href={`mailto:${member.email}`} class="break-all text-sm text-slate-blue hover:text-ice">
+                        {member.email}
+                      </a>
+                    )}
+                  </div>
+                </Card>
+              );
+            })
+          }
+        </div>
+      </section>
+    )}
+
+    {hasSyllabus && (
+      <section id="syllabus" data-course-section class="mt-10 scroll-mt-44">
+        <h2 class="text-xl font-bold text-navy">{t.teaching.navSyllabusLabel}</h2>
+        <Card class="mt-4 flex flex-wrap items-center justify-between gap-4">
+          <p class="text-sm text-slate-600">{t.teaching.downloadSyllabusText}</p>
+          <a
+            href={syllabusUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="shrink-0 rounded-full bg-slate-blue px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          >
+            {t.teaching.syllabusLinkText}
+          </a>
+        </Card>
+      </section>
+    )}
+
+    {hasTopics && (
+      <section id="topics" data-course-section class="mt-10 scroll-mt-44">
+        <h2 class="text-xl font-bold text-navy">{t.teaching.navTopicsLabel}</h2>
+        <div class="mt-4 space-y-3">
+          {
+            course.topics?.map((topic) => (
+              <Card>
+                <div class="flex flex-wrap items-start justify-between gap-3">
+                  <h3 class="font-semibold text-navy">{topic.title}</h3>
+                  {topic.hours && (
+                    <span class="shrink-0 rounded-full bg-slate-blue/10 px-2.5 py-0.5 text-xs font-medium text-slate-blue">
+                      {topic.hours} hrs
+                    </span>
+                  )}
+                </div>
+                {topic.subtopics && topic.subtopics.length > 0 && (
+                  <ul class="mt-2 space-y-1">
+                    {topic.subtopics.map((subtopic) => (
+                      <li class="flex gap-2 text-sm leading-relaxed text-slate-600">
+                        <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-blue/40" />
+                        {subtopic}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </Card>
+            ))
+          }
+        </div>
+      </section>
+    )}
+
+    {hasGrading && (
+      <section id="grading" data-course-section class="mt-10 scroll-mt-44">
+        <h2 class="text-xl font-bold text-navy">{t.teaching.gradingLabel}</h2>
+        <Card class="mt-4">
+          <ul class="space-y-3">
+            {
+              course.grading?.map((item, i) => (
+                <li class:list={["flex items-start justify-between gap-4", i > 0 && "border-t border-slate-100 pt-3"]}>
+                  <div class="min-w-0">
+                    <p class="font-medium text-navy">{item.component}</p>
+                    {item.description && <p class="mt-0.5 text-sm text-slate-600">{item.description}</p>}
+                  </div>
+                  <span class="shrink-0 text-sm font-semibold text-slate-blue">{item.percentage}%</span>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </section>
+    )}
+
+    {hasPolicies && (
+      <section id="policies" data-course-section class="mt-10 scroll-mt-44">
+        <h2 class="text-xl font-bold text-navy">{t.teaching.policiesLabel}</h2>
+        <Card class="mt-4">
+          <ul class="list-inside list-disc space-y-2 text-sm leading-relaxed text-slate-600">
+            {course.policies?.map((policy) => <li>{policy}</li>)}
+          </ul>
+        </Card>
+      </section>
+    )}
+
+    {hasReadings && (
+      <section id="readings" data-course-section class="mt-10 scroll-mt-44">
+        <h2 class="text-xl font-bold text-navy">{t.teaching.readingsLabel}</h2>
+        <Card class="mt-4">
+          {course.readingsNote && <p class="mb-3 text-sm text-slate-500">{course.readingsNote}</p>}
+          <ul class="space-y-2 text-sm text-slate-600">
+            {
+              course.readings?.map((reading) => (
+                <li>
+                  {reading.url ? (
+                    <a href={reading.url} target="_blank" rel="noopener noreferrer" class="text-slate-blue hover:text-ice">
+                      {reading.label}
+                    </a>
+                  ) : (
+                    reading.label
+                  )}
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </section>
+    )}
+
+    {hasProject && (
+      <section id="project" data-course-section class="mt-10 scroll-mt-44">
+        <h2 class="text-xl font-bold text-navy">{t.teaching.finalProjectLabel}</h2>
+        <Card class="mt-4">
+          <p class="font-medium text-navy">{course.project?.title}</p>
+          {course.project?.description && <p class="mt-1 text-sm leading-relaxed text-slate-600">{course.project.description}</p>}
+        </Card>
+      </section>
+    )}
+  </section>
+</Layout>
+
+<script>
+  // Highlights the in-page section nav link matching whichever section is
+  // currently scrolled into view.
+  const sections = document.querySelectorAll<HTMLElement>("[data-course-section]");
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>(".section-nav-link");
+
+  function setActiveSection(id: string) {
+    navLinks.forEach((link) => {
+      const active = link.dataset.navSection === id;
+      link.classList.toggle("bg-slate-blue", active);
+      link.classList.toggle("text-white", active);
+      link.classList.toggle("text-navy/70", !active);
+    });
+  }
+
+  if (sections.length > 0 && navLinks.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-140px 0px -70% 0px", threshold: 0 }
+    );
+    sections.forEach((section) => observer.observe(section));
+  }
+</script>

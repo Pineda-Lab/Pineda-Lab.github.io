@@ -1,9 +1,10 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/PageHeader.astro";
 import Card from "../components/Card.astro";
 import { getLocale, useTranslations } from "../i18n/utils";
-import { parseTerm, isCurrentTerm } from "../utils/academicTerm";
+import { parseTerm, isCurrentTerm, sortTermsDescending, courseTermSlug } from "../utils/academicTerm";
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
@@ -22,36 +23,23 @@ const t = useTranslations(locale);
               <Card>
                 <h3 class="font-semibold text-navy">{course.name}</h3>
                 <div class="mt-3 flex flex-wrap gap-2">
-                  {course.terms.map((term) => {
-                    const { season, year } = parseTerm(term.term);
+                  {sortTermsDescending(course.terms).map((term) => {
+                    const { season, year } = parseTerm(term);
                     const seasonLabel = season === "fall" ? t.teaching.fallLabel : t.teaching.springLabel;
-                    const current = isCurrentTerm(term.term);
-                    const TermTag = term.classroomUrl ? "a" : "span";
+                    const current = isCurrentTerm(term);
                     return (
-                      <TermTag
-                        href={term.classroomUrl || undefined}
-                        target={term.classroomUrl ? "_blank" : undefined}
-                        rel={term.classroomUrl ? "noopener noreferrer" : undefined}
+                      <a
+                        href={getRelativeLocaleUrl(locale, `/teaching/${courseTermSlug(course.slug, term)}`)}
                         class:list={[
-                          "flex flex-col items-start gap-0.5 rounded-xl px-3 py-1.5 leading-tight",
+                          "flex flex-col items-start gap-0.5 rounded-xl px-3 py-1.5 leading-tight transition-opacity hover:opacity-80",
                           current ? "bg-slate-blue text-white" : "bg-slate-blue/10 text-slate-blue",
-                          term.classroomUrl && "transition-opacity hover:opacity-80",
                         ]}
                       >
-                        <span class="flex items-center gap-1 text-sm font-semibold">
+                        <span class="text-sm font-semibold">
                           {seasonLabel} {year}
-                          {term.classroomUrl && (
-                            <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                              <path
-                                fill-rule="evenodd"
-                                d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414Z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-                          )}
                         </span>
-                        <span class="text-[11px] font-normal opacity-70">{term.term}</span>
-                      </TermTag>
+                        <span class="text-[11px] font-normal opacity-70">{term}</span>
+                      </a>
                     );
                   })}
                 </div>

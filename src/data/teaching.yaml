@@ -4,31 +4,41 @@ en:
   description: "Courses taught across undergraduate programs at ENES Morelia, UNAM."
   fallLabel: "Fall"
   springLabel: "Spring"
+  currentLabel: "Current"
+  backLabel: "Back to Teaching"
+  classroomLinkText: "Google Classroom"
+  syllabusLinkText: "Syllabus (PDF)"
+  finalProjectLabel: "Final Project"
+  projectLabel: "Project"
+  prerequisitesLabel: "Prerequisites"
+  meetingScheduleLabel: "Meeting Time"
+  locationLabel: "Location"
+  staffLabel: "Staff"
+  gradingLabel: "Grading"
+  policiesLabel: "Policies"
+  navInfoLabel: "Info"
+  navSyllabusLabel: "Syllabus"
+  navTopicsLabel: "Topics"
+  sectionNavLabel: "Course sections"
+  downloadSyllabusText: "Download the full syllabus as a PDF."
+  readingsLabel: "Readings"
   programs:
     - name: "Bachelor's in Information Technologies for Sciences"
       courses:
-        - name: "Digital Repositories"
-          terms:
-            - term: "2024-2"
-              classroomUrl: ""
-            - term: "2025-2"
-              classroomUrl: ""
-            - term: "2026-2"
-              classroomUrl: ""
-        - name: "Bioinformatics"
-          terms:
-            - term: "2026-1"
-              classroomUrl: ""
-        - name: "Data Mining"
-          terms:
-            - term: "2027-1"
-              classroomUrl: "https://classroom.google.com/c/ODcxMjUyMTk2OTEw?cjc=s3yjoh7r"
+        - slug: "digital-repositories"
+          name: "Digital Repositories"
+          terms: ["2024-2", "2025-2", "2026-2"]
+        - slug: "bioinformatics"
+          name: "Bioinformatics"
+          terms: ["2026-1"]
+        - slug: "data-mining"
+          name: "Data Mining"
+          terms: ["2027-1"]
     - name: "Bachelor's in Business Administration"
       courses:
-        - name: "Information and Communication Technologies"
-          terms:
-            - term: "2027-1"
-              classroomUrl: ""
+        - slug: "ict"
+          name: "Information and Communication Technologies"
+          terms: ["2027-1"]
 
 es:
   eyebrow: "En el aula"
@@ -36,28 +46,38 @@ es:
   description: "Cursos impartidos en distintas licenciaturas de la ENES Morelia, UNAM."
   fallLabel: "Otoño"
   springLabel: "Primavera"
+  currentLabel: "Vigente"
+  backLabel: "Volver a Docencia"
+  classroomLinkText: "Google Classroom"
+  syllabusLinkText: "Temario (PDF)"
+  finalProjectLabel: "Proyecto Final"
+  projectLabel: "Proyecto"
+  prerequisitesLabel: "Prerrequisitos"
+  meetingScheduleLabel: "Horario"
+  locationLabel: "Ubicación"
+  staffLabel: "Personal Docente"
+  gradingLabel: "Evaluación"
+  policiesLabel: "Políticas"
+  navInfoLabel: "Información"
+  navSyllabusLabel: "Programa (PDF)"
+  navTopicsLabel: "Temario"
+  sectionNavLabel: "Secciones del curso"
+  downloadSyllabusText: "Descarga el programa completo en PDF."
+  readingsLabel: "Lecturas"
   programs:
     - name: "Licenciatura en Tecnologías para la Información en Ciencias"
       courses:
-        - name: "Repositorios Digitales"
-          terms:
-            - term: "2024-2"
-              classroomUrl: ""
-            - term: "2025-2"
-              classroomUrl: ""
-            - term: "2026-2"
-              classroomUrl: ""
-        - name: "Bioinformática"
-          terms:
-            - term: "2026-1"
-              classroomUrl: ""
-        - name: "Minería de Datos"
-          terms:
-            - term: "2027-1"
-              classroomUrl: ""
+        - slug: "digital-repositories"
+          name: "Repositorios Digitales"
+          terms: ["2024-2", "2025-2", "2026-2"]
+        - slug: "bioinformatics"
+          name: "Bioinformática"
+          terms: ["2026-1"]
+        - slug: "data-mining"
+          name: "Minería de Datos"
+          terms: ["2027-1"]
     - name: "Licenciatura en Administración"
       courses:
-        - name: "Tecnologías de la Información y Comunicación"
-          terms:
-            - term: "2027-1"
-              classroomUrl: ""
+        - slug: "ict"
+          name: "Tecnologías de la Información y Comunicación"
+          terms: ["2027-1"]

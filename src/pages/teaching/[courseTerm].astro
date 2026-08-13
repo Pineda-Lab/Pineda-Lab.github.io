@@ -1,0 +1,14 @@
+---
+import teaching from "../../data/teaching.yaml";
+import CourseDetail from "../../views/CourseDetail.astro";
+import { courseTermSlug } from "../../utils/academicTerm";
+
+export function getStaticPaths() {
+  const courses = teaching.en.programs.flatMap((program) => program.courses);
+  return courses.flatMap((course) =>
+    course.terms.map((term) => ({ params: { courseTerm: courseTermSlug(course.slug, term) } }))
+  );
+}
+---
+
+<CourseDetail />

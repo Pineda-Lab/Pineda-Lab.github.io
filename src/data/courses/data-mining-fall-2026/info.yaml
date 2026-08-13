@@ -1,0 +1,134 @@
+en:
+  name: "Data Mining"
+  description: "This course covers the analysis and extraction of patterns in datasets using unsupervised machine learning methods and advanced techniques. Students will learn to structure analytical projects and apply ensemble methods, clustering, association rules, and dimensionality reduction. The approach combines theoretical foundations with hands-on implementation in Python to solve data problems in scientific and technological domains."
+  classroomUrl: "https://classroom.google.com/c/ODcxMjUyMTk2OTEw?cjc=s3yjoh7r"
+  syllabus: "syllabus.pdf"
+  logistics:
+    schedule: "Mondays and Thursdays, 8:30–10:00 AM"
+    location: "Room FC-206"
+  staff:
+    - name: "Dr. Arturo López Pineda"
+      role: "Instructor"
+      email: "arturolp@enesmorelia.unam.mx"
+      photo: "/images/people/arturo-headshot.png"
+    - name: 'Jorge "Juipo" Jacuinde Mayés'
+      role: "Teaching Assistant"
+      email: "jacuindejuipo@comunidad.unam.mx"
+  topics:
+    - title: "Introduction and Data Preparation"
+      subtopics:
+        - "Introduction to Data Mining"
+        - "Exploratory Data Analysis: Cleaning, Imputation, Scaling"
+        - "Outlier Detection (Z-Score, IQR)"
+    - title: "Ensemble Methods"
+      subtopics:
+        - "Decision Trees and Gini Impurity"
+        - "Ensembling via Bagging, Boosting, and Random Forest"
+        - "Feature Subspaces and Error Metrics"
+    - title: "Clustering"
+      subtopics:
+        - "Clustering Concepts and Distances"
+        - "K-Means Algorithm and k-means++ Initialization"
+        - "Cluster Evaluation (Inertia and Silhouette)"
+        - "Density-Based Clustering: DBSCAN Algorithm"
+        - "Selecting Epsilon via k-distances and Noise"
+    - title: "Association Rules"
+      subtopics:
+        - "Transactional Analysis and the Apriori Algorithm"
+        - "Rule Metrics: Support, Confidence, and Lift"
+        - "Multi-Objective Filtering and the Pareto Frontier"
+    - title: "Dimensionality Reduction"
+      subtopics:
+        - "Covariance Matrix, Eigenvalues, and Eigenvectors"
+        - "Orthogonal PCA Projection and Explained Variance"
+        - "Visualization in Non-Linear Spaces (t-SNE and UMAP)"
+  grading:
+    - component: "Programming Assignments"
+      percentage: 80
+      description: "6 hands-on Python challenges developed throughout the semester (every 2–3 weeks)."
+    - component: "Final Exam"
+      percentage: 20
+      description: "In-person written exam at the end of the semester, consisting of technical-interview-style exercises focused on problem solving, pseudocode, algorithmic analysis, and theoretical foundations."
+  policies:
+    - "Attendance carries no direct percentage weight in the final grade. However, a minimum of 80% attendance is required to be eligible for continuous assessment and the final ordinary exam."
+    - "All submitted work (assignments, presentations, and projects) must be original. Generative AI tools may be used only for research, brainstorming, or grammar review — not to draft the final content. The instructor reserves the right to request an in-person oral defense of any submitted work; if the student cannot demonstrate mastery of the topic or authorship of the text during that defense, the activity will be voided (a grade of zero)."
+  readingsNote: "Available at the UNAM digital library (bidi.unam.mx) as downloadable PDFs."
+  readings:
+    - label: "Aggarwal, C. C. (2015). Data Mining: The Textbook. Springer."
+    - label: "Aggarwal, C. C., & Reddy, C. K. (2013). Data Clustering: Algorithms and Applications. CRC Press / Chapman & Hall."
+    - label: "Bramer, M. (2020). Principles of Data Mining (4th ed.). Springer."
+    - label: "Manning, C. D., Raghavan, P., & Schütze, H. (2008). Introduction to Information Retrieval. Cambridge University Press."
+    - label: "Tan, P.-N., Steinbach, M., Karpatne, A., & Kumar, V. (2018). Introduction to Data Mining (2nd ed.). Pearson."
+    - label: "James, G., Witten, D., Hastie, T., Tibshirani, R., & Taylor, J. (2023). An Introduction to Statistical Learning: with Applications in Python (ISLP). Springer."
+    - label: "Géron, A. (2022). Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (3rd ed.). O'Reilly Media."
+    - label: "McKinney, W. (2022). Python for Data Analysis: Data Wrangling with Pandas, NumPy, and Jupyter (3rd ed.). O'Reilly Media."
+    - label: "VanderPlas, J. (2022). Python Data Science Handbook: Essential Tools for Working with Data (2nd ed.). O'Reilly Media."
+    - label: "Zaki, M. J., & Meira Jr, W. (2020). Data Mining and Machine Learning: Fundamental Concepts and Algorithms (2nd ed.). Cambridge University Press."
+    - label: "Deisenroth, M. P., Faisal, A. A., & Ong, C. S. (2020). Mathematics for Machine Learning. Cambridge University Press."
+es:
+  name: "Minería de Datos"
+  description: "Este curso aborda el análisis y la extracción de patrones en conjuntos de datos utilizando métodos de aprendizaje automático no supervisado y técnicas avanzadas. Los estudiantes aprenderán a estructurar proyectos analíticos, aplicar métodos de ensamble, agrupamiento (clustering), reglas de asociación y reducción de dimensionalidad. El enfoque combina la fundamentación teórica con la implementación práctica en Python para resolver problemas de datos en áreas científicas y tecnológicas."
+  classroomUrl: "https://classroom.google.com/c/ODcxMjUyMTk2OTEw?cjc=s3yjoh7r"
+  syllabus: "syllabus.pdf"
+  logistics:
+    schedule: "Lunes y Jueves, 8:30–10:00 AM"
+    location: "Salón FC-206"
+  staff:
+    - name: "Dr. Arturo López Pineda"
+      role: "Profesor"
+      email: "arturolp@enesmorelia.unam.mx"
+      photo: "/images/people/arturo-headshot.png"
+    - name: 'Jorge "Juipo" Jacuinde Mayés'
+      role: "Asistente de Docencia"
+      email: "jjmayes066@gmail.com"
+  topics:
+    - title: "Introducción y Preparación de Datos"
+      subtopics:
+        - "Introducción a la Minería de Datos"
+        - "Análisis Exploratorio de Datos: Limpieza, imputación, escalamiento"
+        - "Detección de Outliers (Z-Score, IQR)"
+    - title: "Métodos de Ensamble"
+      subtopics:
+        - "Árboles de Decisión e Impureza de Gini"
+        - "Ensamble por Bagging, Boosting y Random Forest"
+        - "Subespacios de características y métricas de error"
+    - title: "Clustering"
+      subtopics:
+        - "Conceptos de Clustering y Distancias"
+        - "Algoritmo K-Means e inicialización k-means++"
+        - "Evaluación de Clusters (Inercia y Silueta)"
+        - "Clustering por Densidad: Algoritmo DBSCAN"
+        - "Selección de epsilon con k-distancias y ruido"
+    - title: "Reglas de Asociación"
+      subtopics:
+        - "Análisis Transaccional y Algoritmo Apriori"
+        - "Métricas de Reglas: Soporte, Confianza y Lift"
+        - "Filtrado Multiobjetivo y Frontera de Pareto"
+    - title: "Reducción de Dimensionalidad"
+      subtopics:
+        - "Matriz de Covarianza, Autovalores y Autovectores"
+        - "Proyección Ortogonal PCA y Varianza Explicada"
+        - "Visualización en espacios no lineales (t-SNE y UMAP)"
+  grading:
+    - component: "Tareas de Programación"
+      percentage: 70
+      description: "6 retos prácticos aplicados en Python desarrollados a lo largo del semestre (cada 2-3 semanas)."
+    - component: "Examen Final"
+      percentage: 30
+      description: "Examen escrito presencial en papel al término del semestre. Consta de ejercicios tipo entrevista técnica (tech interview) enfocados en resolución de problemas, pseudocódigo, análisis algorítmico y fundamentos teóricos."
+  policies:
+    - "La asistencia no tiene un valor porcentual directo sobre la calificación final. Sin embargo, se requiere un mínimo del 80% de asistencia para tener derecho a la evaluación continua y al examen ordinario final."
+    - "Todos los trabajos entregados (tareas, presentaciones y proyectos) deben ser de autoría propia. El uso de herramientas de Inteligencia Artificial está permitido únicamente para búsqueda de información, lluvia de ideas, revisión gramatical, pero no para la redacción final del contenido. El profesor se reserva el derecho de solicitar una réplica oral presencial de cualquier trabajo entregado. Si el alumno no logra demostrar el dominio del tema o la autoría del texto durante la réplica, la actividad será anulada (calificación de 0)."
+  readingsNote: "Los pueden encontrar en la biblioteca digital (bidi.unam.mx), descargables en PDF."
+  readings:
+    - label: "Aggarwal, C. C. (2015). Data Mining: The Textbook. Springer."
+    - label: "Aggarwal, C. C., & Reddy, C. K. (2013). Data Clustering: Algorithms and Applications. CRC Press / Chapman & Hall."
+    - label: "Bramer, M. (2020). Principles of Data Mining (4th ed.). Springer."
+    - label: "Manning, C. D., Raghavan, P., & Schütze, H. (2008). Introduction to Information Retrieval. Cambridge University Press."
+    - label: "Tan, P.-N., Steinbach, M., Karpatne, A., & Kumar, V. (2018). Introduction to Data Mining (2.ª ed.). Pearson."
+    - label: "James, G., Witten, D., Hastie, T., Tibshirani, R., & Taylor, J. (2023). An Introduction to Statistical Learning: with Applications in Python (ISLP). Springer."
+    - label: "Géron, A. (2022). Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (3.ª ed.). O'Reilly Media."
+    - label: "McKinney, W. (2022). Python for Data Analysis: Data Wrangling with Pandas, NumPy, and Jupyter (3.ª ed.). O'Reilly Media."
+    - label: "VanderPlas, J. (2022). Python Data Science Handbook: Essential Tools for Working with Data (2.ª ed.). O'Reilly Media."
+    - label: "Zaki, M. J., & Meira Jr, W. (2020). Data Mining and Machine Learning: Fundamental Concepts and Algorithms (2.ª ed.). Cambridge University Press."
+    - label: "Deisenroth, M. P., Faisal, A. A., & Ong, C. S. (2020). Mathematics for Machine Learning. Cambridge University Press."

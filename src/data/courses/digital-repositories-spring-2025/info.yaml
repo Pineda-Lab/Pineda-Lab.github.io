@@ -1,0 +1,186 @@
+en:
+  name: "Digital Repositories"
+  description: "This course offers a complete immersion into the world of Data Science, Information Systems, and Digital Repositories. It is designed to give students a deep understanding of the theoretical concepts and practical skills needed to navigate and lead in the field of information technology."
+  classroomUrl: "https://classroom.google.com/c/Njg4MTUzOTgxNTg2?cjc=2txb7ae"
+  syllabus: "syllabus.pdf"
+  logistics:
+    schedule: "Tuesdays and Thursdays, 7:00–9:00 AM"
+    location: "Room B103"
+  staff:
+    - name: "Dr. Arturo López Pineda"
+      role: "Instructor"
+      email: "arturolp@enesmorelia.unam.mx"
+      photo: "/images/people/arturo-headshot.png"
+  topics:
+    - title: "Introduction to Data Science and Information Systems"
+      hours: 4
+      subtopics:
+        - "Overview of Data Science and Information Systems"
+        - "Key Tools and Technologies"
+    - title: "Digital Repositories"
+      hours: 10
+      subtopics:
+        - "Fundamentals of Digital Repositories"
+        - "Content and Metadata Management"
+        - "Interoperability and Metadata Standards"
+        - "Semantic Web and Knowledge Graphs"
+        - "Case Studies"
+    - title: "Organizing Information"
+      hours: 12
+      subtopics:
+        - "Taxonomies and Hierarchies for Data Organization"
+        - "Ontologies"
+        - "Metadata Standards"
+        - "Folksonomies and Tagging"
+        - "Data Cataloging Processes"
+        - "International Metadata Standards"
+    - title: "Information Systems Architecture"
+      hours: 12
+      subtopics:
+        - "Fundamentals of Systems Architecture"
+        - "Hardware and Software Components of an Information System"
+        - "Systems Design and Modeling"
+        - "Databases and Data Storage"
+        - "Current and Future Trends in Systems Architecture"
+        - "Systems Integration and Data Migration"
+    - title: "Computing in Digital Repositories"
+      hours: 12
+      subtopics:
+        - "Introduction to Computing in Digital Repositories"
+        - "Data Processing and Analysis in Repositories"
+        - "Computational Methods for Large-Scale Data"
+        - "Distributed Computing in Data Science"
+        - "Tools and Frameworks for Computing in Repositories"
+        - "Data Visualization and Reporting"
+    - title: "Legal and Ethical Aspects"
+      hours: 6
+      subtopics:
+        - "Intellectual Property Protection in Data Science"
+        - "Data Privacy and Security"
+        - "Ethical Considerations in Data Handling"
+    - title: "Funding Management and Strategies"
+      hours: 8
+      subtopics:
+        - "Fundamentals of Information Technology Funding"
+        - "Cost Models for Information Systems and Digital Repositories"
+        - "Crowdfunding and Collaborative Financing"
+        - "Business Models and Revenue Generation for Digital Repositories"
+  grading:
+    - component: "Assignments"
+      percentage: 20
+      description: "Short exercises and case studies related to the course topics."
+    - component: "Student Presentations"
+      percentage: 20
+      description: "Presentations on specific course topics."
+    - component: "Quizzes"
+      percentage: 15
+      description: "Mid-course assessments."
+    - component: "Final Exam"
+      percentage: 25
+      description: "Written evaluation at the end of the course covering all topics."
+    - component: "Practical Project"
+      percentage: 20
+      description: "Projects involving the practical application of the course's concepts."
+  readings:
+    - label: "Downey, A. (2018). Elements of Data Science. O'Reilly Media, Inc."
+      url: "https://allendowney.github.io/ElementsOfDataScience"
+    - label: "Glushko, Robert J. (2013). The Discipline of Organizing (4th Professional ed.)."
+      url: "https://berkeley.pressbooks.pub/tdo4p/"
+    - label: "Dietrich, David, Barry Heller, and Beibei Yang. (2015). Data Science & Big Data Analytics: Discovering, Analyzing, Visualizing and Presenting Data. Wiley."
+    - label: "Schneier, B. (2015). Data and Goliath: The Hidden Battles to Collect Your Data and Control Your World. WW Norton & Company."
+    - label: "Davis, K. (2012). Ethics of Big Data: Balancing Risk and Innovation. O'Reilly Media, Inc."
+    - label: "Jones, R. E., Andrew, T., & MacColl, J. (2006). The Institutional Repository. Elsevier."
+      url: "https://www.sciencedirect.com/book/9781843341383/the-institutional-repository"
+es:
+  name: "Repositorios Digitales"
+  description: "Este curso ofrece una inmersión completa en el mundo de la Ciencia de Datos, Sistemas de Información, y Repositorios Digitales. Está diseñado para proporcionar a los estudiantes un entendimiento profundo de los conceptos teóricos y habilidades prácticas necesarias para navegar y liderar en el campo de la tecnología de la información."
+  classroomUrl: "https://classroom.google.com/c/Njg4MTUzOTgxNTg2?cjc=2txb7ae"
+  syllabus: "syllabus.pdf"
+  logistics:
+    schedule: "Martes y Jueves, 7:00–9:00 AM"
+    location: "Salón B103"
+  staff:
+    - name: "Dr. Arturo López Pineda"
+      role: "Profesor"
+      email: "arturolp@enesmorelia.unam.mx"
+      photo: "/images/people/arturo-headshot.png"
+  topics:
+    - title: "Introducción a la Ciencia de Datos y Sistemas de Información"
+      hours: 4
+      subtopics:
+        - "Visión general de la Ciencia de Datos y los Sistemas de Información"
+        - "Principales Herramientas y Tecnologías"
+    - title: "Repositorios Digitales"
+      hours: 10
+      subtopics:
+        - "Fundamentos de Repositorios Digitales"
+        - "Gestión de Contenidos y Metadatos"
+        - "Interoperabilidad y Estándares de Metadatos"
+        - "Web Semántica y Grafos de Conocimiento"
+        - "Casos de Estudio"
+    - title: "Organización de la Información"
+      hours: 12
+      subtopics:
+        - "Taxonomías y Jerarquías para la Organización de Datos"
+        - "Ontologías"
+        - "Estándares de Metadatos"
+        - "Folksonomías y Etiquetado"
+        - "Procesos de Catalogación de Datos"
+        - "Estándares Internacionales de Metadatos"
+    - title: "Arquitectura de Sistemas de Información"
+      hours: 12
+      subtopics:
+        - "Fundamentos de la Arquitectura de Sistemas"
+        - "Componentes de Hardware y Software de un Sistema de Información"
+        - "Diseño y Modelado de Sistemas"
+        - "Bases de Datos y Almacenamiento de Datos"
+        - "Tendencias Actuales y Futuras en Arquitectura de Sistemas"
+        - "Integración de Sistemas y Migración de Datos"
+    - title: "Computación en Repositorios Digitales"
+      hours: 12
+      subtopics:
+        - "Introducción a la Computación en Repositorios Digitales"
+        - "Procesamiento y Análisis de Datos en Repositorios"
+        - "Métodos Computacionales para Datos a Gran Escala"
+        - "Computación Distribuida en Ciencia de Datos"
+        - "Herramientas y Marcos para la Computación en Repositorios"
+        - "Visualización de Datos y Reportes"
+    - title: "Aspectos Legales y Éticos"
+      hours: 6
+      subtopics:
+        - "Protección de la Propiedad Intelectual en Ciencia de Datos"
+        - "Privacidad y Seguridad de Datos"
+        - "Consideraciones Éticas en el Manejo de Datos"
+    - title: "Gestión y Estrategias de Financiamiento"
+      hours: 8
+      subtopics:
+        - "Fundamentos de financiamiento en tecnología de la información"
+        - "Modelos de costos para sistemas de información y repositorios digitales"
+        - "Crowdfunding, financiamiento colectivo, y colaboraciones"
+        - "Modelos de negocio y generación de ingresos para repositorios digitales"
+  grading:
+    - component: "Tareas"
+      percentage: 20
+      description: "Ejercicios cortos y estudios de caso relacionados con los temas del curso."
+    - component: "Presentaciones de los Alumnos"
+      percentage: 20
+      description: "Presentaciones sobre temas específicos del curso."
+    - component: "Exámenes rápidos"
+      percentage: 15
+      description: "Evaluaciones intermedias del curso."
+    - component: "Examen Final"
+      percentage: 25
+      description: "Evaluación escrita al final del curso cubriendo todos los temas."
+    - component: "Proyecto Práctico"
+      percentage: 20
+      description: "Proyectos que involucran la aplicación práctica de los conocimientos."
+  readings:
+    - label: "Downey, A. (2018). Elements of Data Science. O'Reilly Media, Inc."
+      url: "https://allendowney.github.io/ElementsOfDataScience"
+    - label: "Glushko, Robert J. (2013). The Discipline of Organizing (4th Professional ed.)."
+      url: "https://berkeley.pressbooks.pub/tdo4p/"
+    - label: "Dietrich, David, Barry Heller, and Beibei Yang. (2015). Data Science & Big Data Analytics: Discovering, Analyzing, Visualizing and Presenting Data. Wiley."
+    - label: "Schneier, B. (2015). Data and Goliath: The Hidden Battles to Collect Your Data and Control Your World. WW Norton & Company."
+    - label: "Davis, K. (2012). Ethics of Big Data: Balancing Risk and Innovation. O'Reilly Media, Inc."
+    - label: "Jones, R. E., Andrew, T., & MacColl, J. (2006). The Institutional Repository. Elsevier."
+      url: "https://www.sciencedirect.com/book/9781843341383/the-institutional-repository"
