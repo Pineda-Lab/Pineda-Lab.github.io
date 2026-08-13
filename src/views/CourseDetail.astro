@@ -21,7 +21,6 @@ interface ReadingEntry {
 
 interface Topic {
   title: string;
-  hours?: number;
   subtopics?: string[];
 }
 
@@ -254,14 +253,7 @@ const teachingHref = getRelativeLocaleUrl(locale, "/teaching");
           {
             course.topics?.map((topic) => (
               <Card>
-                <div class="flex flex-wrap items-start justify-between gap-3">
-                  <h3 class="font-semibold text-navy">{topic.title}</h3>
-                  {topic.hours && (
-                    <span class="shrink-0 rounded-full bg-slate-blue/10 px-2.5 py-0.5 text-xs font-medium text-slate-blue">
-                      {topic.hours} hrs
-                    </span>
-                  )}
-                </div>
+                <h3 class="font-semibold text-navy">{topic.title}</h3>
                 {topic.subtopics && topic.subtopics.length > 0 && (
                   <ul class="mt-2 space-y-1">
                     {topic.subtopics.map((subtopic) => (
