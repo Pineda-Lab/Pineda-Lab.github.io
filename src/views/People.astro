@@ -3,7 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/PageHeader.astro";
 import Eyebrow from "../components/Eyebrow.astro";
 import IconBadge from "../components/IconBadge.astro";
+import Card from "../components/Card.astro";
 import { getLocale, useTranslations } from "../i18n/utils";
+
+function getInitials(name: string): string {
+  const words = name.replace(/["'"'']/g, "").split(/\s+/).filter((w) => w && !w.endsWith("."));
+  if (words.length === 0) return "";
+  const first = words[0][0];
+  const last = words[words.length - 1][0];
+  return (words.length > 1 ? first + last : first).toUpperCase();
+}
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
@@ -116,6 +125,71 @@ const personSchema = {
           </IconBadge>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+    <Eyebrow>{t.people.joinEyebrow}</Eyebrow>
+    <h2 class="mt-1 text-2xl font-bold text-navy sm:text-3xl">{t.people.joinTitle}</h2>
+    <p class="mt-3 max-w-3xl leading-relaxed text-slate-600">{t.people.joinDescription}</p>
+
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+      <Card>
+        <h3 class="text-lg font-semibold text-navy">{t.people.joinEnesTitle}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">{t.people.joinEnesDescription}</p>
+        <div class="mt-4">
+          <IconBadge href={`mailto:${email}`}>
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+              />
+            </svg>
+            {t.people.joinContactLabel}
+          </IconBadge>
+        </div>
+      </Card>
+      <Card>
+        <h3 class="text-lg font-semibold text-navy">{t.people.joinOtherTitle}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">{t.people.joinOtherDescription}</p>
+        <div class="mt-4">
+          <IconBadge href={`mailto:${email}`}>
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+              />
+            </svg>
+            {t.people.joinContactLabel}
+          </IconBadge>
+        </div>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+    <Eyebrow>{t.people.alumniEyebrow}</Eyebrow>
+    <h2 class="mt-1 text-2xl font-bold text-navy sm:text-3xl">{t.people.alumniTitle}</h2>
+    <p class="mt-3 max-w-3xl leading-relaxed text-slate-600">{t.people.alumniDescription}</p>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      {
+        t.people.alumni.map((person) => (
+          <Card class="flex items-center gap-4">
+            <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-slate-blue/10 text-lg font-semibold text-slate-blue">
+              {getInitials(person.name)}
+            </div>
+            <div class="min-w-0">
+              <p class="font-semibold text-navy">{person.name}</p>
+              <p class="text-sm text-slate-500">{person.degree}</p>
+              <p class="mt-1 text-xs leading-relaxed text-slate-500">{person.institution}</p>
+              <p class="mt-1 text-sm text-slate-600">{person.role}</p>
+            </div>
+          </Card>
+        ))
+      }
     </div>
   </section>
 </Layout>

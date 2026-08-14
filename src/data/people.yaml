@@ -17,6 +17,22 @@ en:
   amphoraLabel: "Amphora Health"
   orcidLabel: "ORCID"
   scholarLabel: "Google Scholar"
+  joinEyebrow: "Prospective students"
+  joinTitle: "Join the Lab"
+  joinDescription: "The Pineda Lab is looking for motivated students to develop their undergraduate or graduate thesis in AI in Health, digital health, or clinical genomics."
+  joinEnesTitle: "Students at ENES Morelia, UNAM"
+  joinEnesDescription: "Dr. López Pineda is affiliated with ENES Morelia and can formally advise thesis projects for students enrolled in its undergraduate programs. If you're interested, reach out to discuss potential topics."
+  joinOtherTitle: "Students at other institutions"
+  joinOtherDescription: "Not enrolled at ENES Morelia? We're still glad to hear from you: reach out and we can discuss whether a co-advised thesis with your home institution is possible."
+  joinContactLabel: "Get in touch about a thesis"
+  alumniEyebrow: "Our alumni"
+  alumniTitle: "Alumni"
+  alumniDescription: "Students who completed their thesis under the lab's guidance."
+  alumni:
+    - name: "Dr. Felipe Rodríguez Morán"
+      degree: "M.D. (Médico Cirujano y Partero)"
+      institution: 'Facultad de Ciencias Médicas y Biológicas "Dr. Ignacio Chávez", Universidad Michoacana de San Nicolás de Hidalgo'
+      role: "Co-advised his undergraduate thesis in Medicine"
 
 es:
   eyebrow: "Quiénes somos"
@@ -37,3 +53,19 @@ es:
   amphoraLabel: "Amphora Health"
   orcidLabel: "ORCID"
   scholarLabel: "Google Scholar"
+  joinEyebrow: "Estudiantes potenciales"
+  joinTitle: "Únete al Laboratorio"
+  joinDescription: "El Pineda Lab busca estudiantes motivados para desarrollar su tesis de licenciatura o posgrado en Inteligencia Artificial en Salud, Salud Digital o Genómica Clínica."
+  joinEnesTitle: "Estudiantes de la ENES Morelia, UNAM"
+  joinEnesDescription: "El Dr. López Pineda tiene adscripción en la ENES Morelia y puede asesorar formalmente proyectos de tesis de estudiantes inscritos en sus licenciaturas. Si te interesa, contáctanos para platicar sobre posibles temas."
+  joinOtherTitle: "Estudiantes de otras instituciones"
+  joinOtherDescription: "¿No estás inscrito en la ENES Morelia? Con gusto te escuchamos: contáctanos y podemos platicar si es posible una coasesoría de tesis con tu institución de origen."
+  joinContactLabel: "Contáctanos sobre tu tesis"
+  alumniEyebrow: "Nuestros egresados"
+  alumniTitle: "Alumni"
+  alumniDescription: "Estudiantes que completaron su tesis bajo la guía del laboratorio."
+  alumni:
+    - name: "Dr. Felipe Rodríguez Morán"
+      degree: "Médico Cirujano y Partero"
+      institution: 'Facultad de Ciencias Médicas y Biológicas "Dr. Ignacio Chávez", Universidad Michoacana de San Nicolás de Hidalgo'
+      role: "Coasesoría de su tesis de licenciatura en Medicina"
