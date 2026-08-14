@@ -108,7 +108,7 @@ const current = isCurrentTerm(termCode);
 const teachingHref = getRelativeLocaleUrl(locale, "/teaching");
 ---
 
-<Layout title={`${course.name} — ${seasonLabel} ${year}`} description={course.description || t.teaching.description}>
+<Layout title={`${course.name} · ${seasonLabel} ${year}`} description={course.description || t.teaching.description}>
   <PageHeader eyebrow={`${seasonLabel} ${year} · ${termCode}`} title={course.name} description={course.description || undefined} />
 
   <section class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
@@ -147,7 +147,7 @@ const teachingHref = getRelativeLocaleUrl(locale, "/teaching");
             {seasonLabel} {year} <span class="font-normal text-slate-500">· {termCode}</span>
           </h2>
           {current && (
-            <span class="rounded-full bg-slate-blue px-3 py-1 text-xs font-semibold text-white">
+            <span class="rounded-full bg-rose px-3 py-1 text-xs font-semibold text-white">
               {t.teaching.currentLabel}
             </span>
           )}

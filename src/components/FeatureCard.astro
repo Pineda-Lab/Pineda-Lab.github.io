@@ -16,6 +16,15 @@ const icons: Record<Props["icon"], string> = {
   dna: 'M7.5 3a.75.75 0 0 1 .75.75c0 2.313 1.377 3.75 3.75 3.75s3.75-1.437 3.75-3.75a.75.75 0 0 1 1.5 0c0 2.71-1.554 4.582-3.879 5.146 2.325.564 3.879 2.436 3.879 5.146a.75.75 0 0 1-1.5 0c0-2.313-1.377-3.75-3.75-3.75s-3.75 1.437-3.75 3.75a.75.75 0 0 1-1.5 0c0-2.71 1.554-4.582 3.879-5.146C8.304 8.332 6.75 6.46 6.75 3.75A.75.75 0 0 1 7.5 3Z',
 };
 
+// Each pillar gets its own accent so the section reads as three distinct
+// areas rather than one repeated blue icon.
+const tones: Record<Props["icon"], { badge: string; link: string; hoverBorder: string }> = {
+  brain: { badge: "bg-slate-blue/10 text-slate-blue", link: "text-slate-blue", hoverBorder: "hover:border-slate-blue/40" },
+  device: { badge: "bg-ice/10 text-ice", link: "text-ice", hoverBorder: "hover:border-ice/40" },
+  dna: { badge: "bg-rose/10 text-rose", link: "text-rose", hoverBorder: "hover:border-rose/40" },
+};
+
+const tone = tones[icon];
 const Tag = href ? "a" : "div";
 ---
 
@@ -23,10 +32,10 @@ const Tag = href ? "a" : "div";
   href={href}
   class:list={[
     "group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all",
-    href && "hover:-translate-y-1 hover:border-slate-blue/40 hover:shadow-md",
+    href && ["hover:-translate-y-1 hover:shadow-md", tone.hoverBorder],
   ]}
 >
-  <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-slate-blue/10 text-slate-blue">
+  <span class:list={["inline-flex h-12 w-12 items-center justify-center rounded-xl", tone.badge]}>
     <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d={icons[icon]} />
     </svg>
@@ -35,7 +44,7 @@ const Tag = href ? "a" : "div";
   <p class="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
   {
     href && (
-      <span class="mt-4 inline-flex items-center text-sm font-medium text-slate-blue">
+      <span class:list={["mt-4 inline-flex items-center text-sm font-medium", tone.link]}>
         Learn more
         <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414Z" clip-rule="evenodd" />

@@ -1,6 +1,6 @@
 ---
 interface Props {
-  tone?: "tint" | "solid";
+  tone?: "tint" | "solid" | "rose-tint" | "rose-solid";
   uppercase?: boolean;
   href?: string;
   external?: boolean;
@@ -12,6 +12,15 @@ const { tone = "tint", uppercase = false, href, external = false, class: classNa
 const toneClasses: Record<NonNullable<Props["tone"]>, string> = {
   tint: "bg-slate-blue/10 text-slate-blue",
   solid: "bg-slate-blue text-white",
+  "rose-tint": "bg-rose/10 text-rose",
+  "rose-solid": "bg-rose text-white",
+};
+
+const hoverClasses: Record<NonNullable<Props["tone"]>, string> = {
+  tint: "hover:bg-slate-blue/20",
+  solid: "hover:bg-slate-blue/90",
+  "rose-tint": "hover:bg-rose/20",
+  "rose-solid": "hover:bg-rose/90",
 };
 
 const Tag = href ? "a" : "span";
@@ -25,7 +34,7 @@ const Tag = href ? "a" : "span";
     "rounded-full font-medium",
     uppercase ? "px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide" : "px-3 py-1 text-xs",
     toneClasses[tone],
-    href && "transition-colors hover:bg-slate-blue/20",
+    href && ["transition-colors", hoverClasses[tone]],
     className,
   ]}
 >

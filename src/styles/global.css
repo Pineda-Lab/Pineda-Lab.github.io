@@ -2,11 +2,14 @@
 
 /*
   Design tokens. Everything else in the site (components, views) should pull
-  color from these four roles rather than introducing new one-off values:
+  color from these five roles rather than introducing new one-off values:
     --color-navy       body text / dark surfaces (hero, footer)
     --color-slate-blue  primary brand accent (buttons, links, active states)
     --color-surface     page background
     --color-ice          highlight accent (eyebrows, CTA fills, focus ring)
+    --color-rose         secondary accent, used sparingly so the site isn't
+                          all blue (e.g. one of the Home pillar icons, "current
+                          term" badges) — not a substitute for slate-blue
 */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -15,6 +18,7 @@
   --color-slate-blue: #1e3a8a;
   --color-surface: #f8fafc;
   --color-ice: #38bdf8;
+  --color-rose: #f43f5e;
 }
 
 @layer base {
