@@ -13,6 +13,8 @@ en:
     mainNavLabel: "Main navigation"
     toggleMenu: "Toggle navigation menu"
     langSwitchLabel: "Switch language"
+    langEnglish: "English"
+    langSpanish: "Español"
   footer:
     rights: "All rights reserved."
     privacyLabel: "Privacy Policy"
@@ -33,6 +35,8 @@ es:
     mainNavLabel: "Navegación principal"
     toggleMenu: "Alternar menú de navegación"
     langSwitchLabel: "Cambiar idioma"
+    langEnglish: "English"
+    langSpanish: "Español"
   footer:
     rights: "Todos los derechos reservados."
     privacyLabel: "Política de Privacidad"
