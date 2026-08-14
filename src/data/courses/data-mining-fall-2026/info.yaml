@@ -51,7 +51,7 @@ en:
       description: "In-person written exam at the end of the semester, consisting of technical-interview-style exercises focused on problem solving, pseudocode, algorithmic analysis, and theoretical foundations."
   policies:
     - "Attendance carries no direct percentage weight in the final grade. However, a minimum of 80% attendance is required to be eligible for continuous assessment and the final ordinary exam."
-    - "All submitted work (assignments, presentations, and projects) must be original. Generative AI tools may be used only for research, brainstorming, or grammar review — not to draft the final content. The instructor reserves the right to request an in-person oral defense of any submitted work; if the student cannot demonstrate mastery of the topic or authorship of the text during that defense, the activity will be voided (a grade of zero)."
+    - "All submitted work (assignments, presentations, and projects) must be original. Generative AI tools may be used only for research, brainstorming, or grammar review, but not to draft the final content. The instructor reserves the right to request an in-person oral defense of any submitted work; if the student cannot demonstrate mastery of the topic or authorship of the text during that defense, the activity will be voided (a grade of zero)."
   readingsNote: "Available at the UNAM digital library (bidi.unam.mx) as downloadable PDFs."
   readings:
     - label: "Aggarwal, C. C. (2015). Data Mining: The Textbook. Springer."

@@ -64,7 +64,7 @@ en:
       description: "Written and practical evaluation at the end of the course, covering data interpretation, analysis, and key concepts in clinical bioinformatics."
   policies:
     - "Attendance carries no direct percentage weight in the final grade. However, a minimum of 80% attendance is required to be eligible for continuous assessment and the final ordinary exam."
-    - "All submitted work (assignments, presentations, and projects) must be original. Generative AI tools may be used only for research, brainstorming, or grammar review — not to draft the final content. The instructor reserves the right to request an in-person oral defense of any submitted work; if the student cannot demonstrate mastery of the topic or authorship of the text during that defense, the activity will be voided (a grade of zero)."
+    - "All submitted work (assignments, presentations, and projects) must be original. Generative AI tools may be used only for research, brainstorming, or grammar review, but not to draft the final content. The instructor reserves the right to request an in-person oral defense of any submitted work; if the student cannot demonstrate mastery of the topic or authorship of the text during that defense, the activity will be voided (a grade of zero)."
   readings:
     - label: "Mount, D. W. (2007). Bioinformatics: Sequence and Genome Analysis (2nd ed.). Cold Spring Harbor Laboratory Press."
     - label: "Lesk, A. M. (2019). Introduction to Bioinformatics (5th ed.). Oxford University Press."
