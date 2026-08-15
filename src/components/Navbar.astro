@@ -185,14 +185,14 @@ const localeOptions = locales.map((loc) => ({
   </nav>
 
   <div id="mobile-menu" class="hidden border-t border-slate-200/70 bg-surface md:hidden">
-    <ul class="flex flex-col gap-1 px-6 py-4">
+    <ul class="flex flex-col gap-1.5 px-6 py-4">
       {
         navLinks.map((link) => (
           <li>
             {link.dropdown ? (
               <p
                 class:list={[
-                  "block rounded-md px-3 py-2 text-base font-medium",
+                  "block rounded-md px-4 py-3 text-base font-medium",
                   link.active ? "bg-slate-blue text-white" : "text-navy/80",
                 ]}
               >
@@ -203,7 +203,7 @@ const localeOptions = locales.map((loc) => ({
                 href={link.href}
                 aria-current={link.active ? "page" : undefined}
                 class:list={[
-                  "block rounded-md px-3 py-2 text-base font-medium",
+                  "block rounded-md px-4 py-3 text-base font-medium",
                   link.active
                     ? "bg-slate-blue text-white"
                     : "text-navy/80 hover:bg-slate-blue/10 hover:text-slate-blue",
@@ -218,7 +218,7 @@ const localeOptions = locales.map((loc) => ({
                   <li>
                     <a
                       href={project.href}
-                      class="block rounded-md px-3 py-2 text-sm text-navy/70 hover:bg-slate-blue/10 hover:text-slate-blue"
+                      class="block rounded-md px-4 py-2.5 text-sm text-navy/70 hover:bg-slate-blue/10 hover:text-slate-blue"
                     >
                       {project.name}
                     </a>
