@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://pineda-lab.github.io',
+  site: 'https://pinedalab.ai',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],

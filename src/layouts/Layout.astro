@@ -48,7 +48,7 @@ const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "ResearchOrganization",
     name: "Pineda Lab",
-    url: "https://pineda-lab.github.io",
+    url: Astro.site?.toString(),
     logo: new URL("/images/logos/pinedalab-logo.png", Astro.site).toString(),
     description: t.meta.defaultDescription,
     parentOrganization: {

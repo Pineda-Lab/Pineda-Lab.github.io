@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-This is the source for the Pineda Lab website, hosted at `pineda-lab.github.io` via GitHub Pages. It is an [Astro](https://astro.build) static site styled with Tailwind CSS v4 (via `@tailwindcss/vite`, CSS-first config — there is no `tailwind.config.js`). GitHub Actions (`.github/workflows/deploy.yml`) builds and deploys the site to GitHub Pages on every push to `main`; there is no manual deploy step.
+This is the source for the Pineda Lab website, hosted at the custom domain `pinedalab.ai` via GitHub Pages (the underlying repo is still `Pineda-Lab.github.io`, pointed at that domain via `public/CNAME`). It is an [Astro](https://astro.build) static site styled with Tailwind CSS v4 (via `@tailwindcss/vite`, CSS-first config — there is no `tailwind.config.js`). GitHub Actions (`.github/workflows/deploy.yml`) builds and deploys the site to GitHub Pages on every push to `main`; there is no manual deploy step.
 
-Since this repo is `<org>.github.io`, the site is served from the domain root — `astro.config.mjs` sets `site` but intentionally has no `base` path.
+Since this repo is `<org>.github.io`, the site is served from the domain root — `astro.config.mjs` sets `site` (`https://pinedalab.ai`) but intentionally has no `base` path. `public/CNAME` must stay under `public/` (not the repo root) so `astro build` copies it into `dist/` and each Actions deploy actually publishes it — it was previously at the repo root, which only the legacy Jekyll "deploy from a branch" Pages mode reads, not our Actions-based one.
 
 The lab is directed by Dr. Arturo López Pineda at ENES Morelia, UNAM, with research spanning AI in Health, Digital Health, and Clinical Genomics.
 

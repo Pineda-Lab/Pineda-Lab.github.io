@@ -1,6 +1,6 @@
 # Pineda Lab website
 
-Source for the Pineda Lab website, hosted at [pineda-lab.github.io](https://pineda-lab.github.io) via GitHub Pages.
+Source for the Pineda Lab website, hosted at [pinedalab.ai](https://pinedalab.ai) via GitHub Pages.
 
 Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com). Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site and deploys it to GitHub Pages automatically.
 
