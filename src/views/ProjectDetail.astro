@@ -1,0 +1,284 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Pill from "../components/Pill.astro";
+import { getLocale, useTranslations } from "../i18n/utils";
+import { getProject } from "../utils/projects";
+import { getInitials } from "../utils/initials";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+
+// Collaborator `photo` is a plain public/ path (not a build-time asset
+// import), so a filename that hasn't been uploaded yet wouldn't fail the
+// build — it would just 404 at runtime. Checking existence here means an
+// initials placeholder shows until the real file is actually dropped in.
+function resolvedPhoto(photo?: string): string | undefined {
+  if (!photo) return undefined;
+  return fs.existsSync(path.join(process.cwd(), "public", photo)) ? photo : undefined;
+}
+
+const projectSlug = Astro.params.project!;
+const project = getProject(locale, projectSlug)!;
+
+const projectsHref = `${getRelativeLocaleUrl(locale, "/")}#projects`;
+
+const hasRole = Boolean(project.role);
+const hasCollaborators = Boolean(project.collaborators?.length);
+const hasBioethics = Boolean(project.bioethics);
+const hasSubprojects = Boolean(project.subprojects?.length);
+const hasFunding = Boolean(project.funding);
+
+const navSections = [
+  { id: "overview", label: t.projects.overviewLabel },
+  hasBioethics && { id: "bioethics", label: t.projects.bioethicsLabel },
+  hasFunding && { id: "funding", label: t.projects.fundingLabel },
+  hasCollaborators && { id: "collaborators", label: t.projects.collaboratorsLabel },
+  hasSubprojects && { id: "subprojects", label: t.projects.subprojectsLabel },
+].filter((section): section is { id: string; label: string } => Boolean(section));
+---
+
+<Layout title={project.name} description={project.title}>
+  <section class="relative overflow-hidden bg-gradient-to-br from-slate-blue to-rose text-white">
+    <div class="relative mx-auto max-w-4xl px-6 py-20 sm:py-28">
+      <div class="flex flex-col items-center gap-8 text-center sm:flex-row sm:text-left">
+        {
+          project.logo ? (
+            <img
+              src={project.logo}
+              alt={project.name}
+              class="h-28 w-28 shrink-0 rounded-3xl bg-white object-contain p-4 shadow-lg sm:h-36 sm:w-36"
+            />
+          ) : (
+            <div class="flex h-28 w-28 shrink-0 items-center justify-center rounded-3xl bg-white/10 text-3xl font-semibold text-white shadow-lg sm:h-36 sm:w-36">
+              {getInitials(project.name)}
+            </div>
+          )
+        }
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-white/80">{project.name}</p>
+          <h1 class="mt-2 text-balance text-3xl font-bold tracking-tight sm:text-4xl">{project.title}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
+    <nav
+      class="sticky top-20 z-40 -mx-6 border-b border-slate-200/70 bg-surface/95 px-6 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border"
+      aria-label={t.projects.sectionNavLabel}
+    >
+      <div class="flex items-center gap-1.5 pt-2 text-sm">
+        <a href={projectsHref} class="shrink-0 text-slate-500 transition-colors hover:text-slate-blue">
+          &larr; {t.projects.backToProjectsLabel}
+        </a>
+        <span class="shrink-0 text-slate-300" aria-hidden="true">
+          /
+        </span>
+        <span class="min-w-0 truncate font-semibold text-navy">{project.name}</span>
+      </div>
+      <div class="flex gap-1 overflow-x-auto border-t border-slate-200/70 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mt-2 sm:border-t-0 sm:pt-0">
+        {
+          navSections.map((section) => (
+            <a
+              href={`#${section.id}`}
+              data-nav-section={section.id}
+              class="project-nav-link shrink-0 rounded-full px-3 py-1.5 text-sm font-medium text-navy/70 transition-colors hover:bg-slate-blue/10 hover:text-slate-blue"
+            >
+              {section.label}
+            </a>
+          ))
+        }
+      </div>
+    </nav>
+
+    <section id="overview" data-project-section class="mt-6 scroll-mt-44">
+      <h2 class="text-xl font-bold text-navy">{t.projects.overviewLabel}</h2>
+      <div class="mt-4">
+        {
+          hasRole && (
+            <Pill tone="rose-tint">
+              {t.projects.roleLabel}: {project.role}
+            </Pill>
+          )
+        }
+        <p class:list={["text-lg leading-relaxed text-slate-700", hasRole && "mt-4"]}>{project.abstract ?? project.title}</p>
+      </div>
+    </section>
+
+    {
+      hasBioethics && (
+        <section id="bioethics" data-project-section class="mt-10 scroll-mt-44">
+          <h2 class="text-xl font-bold text-navy">{t.projects.bioethicsLabel}</h2>
+          <Card class="mt-4">
+            <dl class="grid gap-4 text-sm sm:grid-cols-2">
+              <div>
+                <dt class="font-medium text-navy">{t.projects.reviewingCommitteesLabel}</dt>
+                <dd class="mt-0.5 text-slate-600">{project.bioethics?.reviewingCommittees}</dd>
+              </div>
+              <div>
+                <dt class="font-medium text-navy">{t.projects.protocolIdLabel}</dt>
+                <dd class="mt-0.5 text-slate-600">{project.bioethics?.protocolId}</dd>
+              </div>
+            </dl>
+          </Card>
+        </section>
+      )
+    }
+
+    {
+      hasFunding && (
+        <section id="funding" data-project-section class="mt-10 scroll-mt-44">
+          <h2 class="text-xl font-bold text-navy">{t.projects.fundingLabel}</h2>
+          <Card class="mt-4">
+            <dl class="space-y-3 text-sm">
+              <div>
+                <dt class="font-medium text-navy">{t.projects.fundingSourceLabel}</dt>
+                <dd class="mt-0.5 text-slate-600">{project.funding?.source}</dd>
+              </div>
+              {project.funding?.program && (
+                <div>
+                  <dt class="font-medium text-navy">{t.projects.fundingProgramLabel}</dt>
+                  <dd class="mt-0.5 text-slate-600">{project.funding.program}</dd>
+                </div>
+              )}
+            </dl>
+          </Card>
+        </section>
+      )
+    }
+
+    {
+      hasCollaborators && (
+        <section id="collaborators" data-project-section class="mt-10 scroll-mt-44">
+          <h2 class="text-xl font-bold text-navy">{t.projects.collaboratorsLabel}</h2>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            {project.collaborators?.map((person) => {
+              const photoUrl = resolvedPhoto(person.photo);
+              return (
+                <Card class="flex items-center gap-4">
+                  {photoUrl ? (
+                    <img src={photoUrl} alt={person.name} class="h-16 w-16 shrink-0 rounded-2xl object-cover" />
+                  ) : (
+                    <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-slate-blue/10 text-lg font-semibold text-slate-blue">
+                      {getInitials(person.name)}
+                    </div>
+                  )}
+                  <div class="min-w-0">
+                    <p class="font-semibold text-navy">{person.name}</p>
+                    {person.affiliation && <p class="text-sm text-slate-500">{person.affiliation}</p>}
+                    {person.role && (
+                      <Pill tone="tint" class="mt-1.5">
+                        {person.role}
+                      </Pill>
+                    )}
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+      )
+    }
+
+    {
+      hasSubprojects && (
+        <section id="subprojects" data-project-section class="mt-10 scroll-mt-44">
+          <h2 class="text-xl font-bold text-navy">{t.projects.subprojectsLabel}</h2>
+          <div class="mt-4 space-y-6">
+            {project.subprojects?.map((sub) => (
+              <Card class="p-6 sm:p-8">
+                <div class="flex items-start justify-between gap-4">
+                  <h3 class="rounded-lg bg-slate-blue/10 px-3 py-1.5 text-lg font-semibold text-navy">{sub.title}</h3>
+                  {sub.status && (
+                    <Pill tone="tint" class="shrink-0">
+                      {sub.status}
+                    </Pill>
+                  )}
+                </div>
+                {sub.description && <p class="mt-3 text-sm leading-relaxed text-slate-600">{sub.description}</p>}
+
+                {sub.resources && sub.resources.length > 0 && (
+                  <div class="mt-6">
+                    <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-500">{t.projects.resourcesLabel}</h4>
+                    <div class="mt-3 grid gap-3 sm:grid-cols-2">
+                      {sub.resources.map((resource) => (
+                        <a
+                          href={resource.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="group flex items-start gap-3 rounded-xl border border-slate-200 p-4 transition-colors hover:border-slate-blue/40 hover:bg-slate-blue/5"
+                        >
+                          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-blue/10 text-slate-blue">
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
+                            </svg>
+                          </span>
+                          <span class="min-w-0">
+                            <span class="block text-sm font-medium text-navy group-hover:text-slate-blue">{resource.name}</span>
+                            {resource.description && <span class="mt-0.5 block text-xs text-slate-500">{resource.description}</span>}
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {sub.articles && sub.articles.length > 0 && (
+                  <div class="mt-6">
+                    <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-500">{t.projects.articlesLabel}</h4>
+                    <ul class="mt-3 space-y-2">
+                      {sub.articles.map((article) => (
+                        <li class="text-sm leading-relaxed">
+                          {article.url ? (
+                            <a href={article.url} target="_blank" rel="noopener noreferrer" class="text-slate-blue hover:text-ice">
+                              {article.title}
+                            </a>
+                          ) : (
+                            <span class="text-navy">{article.title}</span>
+                          )}
+                          {article.venue && <span class="text-slate-500"> · {article.venue}</span>}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </Card>
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </section>
+</Layout>
+
+<script>
+  // Highlights the in-page section nav link matching whichever section is
+  // currently scrolled into view.
+  const sections = document.querySelectorAll<HTMLElement>("[data-project-section]");
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>(".project-nav-link");
+
+  function setActiveSection(id: string) {
+    navLinks.forEach((link) => {
+      const active = link.dataset.navSection === id;
+      link.classList.toggle("bg-slate-blue", active);
+      link.classList.toggle("text-white", active);
+      link.classList.toggle("text-navy/70", !active);
+    });
+  }
+
+  if (sections.length > 0 && navLinks.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-140px 0px -70% 0px", threshold: 0 },
+    );
+    sections.forEach((section) => observer.observe(section));
+  }
+</script>

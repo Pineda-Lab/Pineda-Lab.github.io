@@ -5,14 +5,7 @@ import Eyebrow from "../components/Eyebrow.astro";
 import IconBadge from "../components/IconBadge.astro";
 import Card from "../components/Card.astro";
 import { getLocale, useTranslations } from "../i18n/utils";
-
-function getInitials(name: string): string {
-  const words = name.replace(/["'"'']/g, "").split(/\s+/).filter((w) => w && !w.endsWith("."));
-  if (words.length === 0) return "";
-  const first = words[0][0];
-  const last = words[words.length - 1][0];
-  return (words.length > 1 ? first + last : first).toUpperCase();
-}
+import { getInitials } from "../utils/initials";
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);

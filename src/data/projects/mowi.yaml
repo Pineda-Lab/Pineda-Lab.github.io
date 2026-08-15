@@ -1,0 +1,41 @@
+en:
+  name: "MOWI"
+  title: "Mobile and Wearable Interfaces for Health and Physical Activity Observation."
+  abstract: "This digital health project integrates and standardizes observational data from mobile devices and wearables in adults to address physical activity data fragmentation. Using data science and statistical analysis, the study evaluates activity patterns to inform public health strategies aimed at preventing sedentary behavior, obesity, and cardiovascular diseases."
+  logo: ""
+  collaborators:
+     - name: "Dr. Arturo López Pineda"
+       role: "Principal Investigator"
+       affiliation: "ENES Morelia, UNAM / Amphora Health"
+       photo: "/images/people/arturo-headshot.png"
+     - name: "Dra. Myriam Alanis Espinosa"
+       role: "Co-Investigator"
+       affiliation: "Tecnológico de Monterrey"
+       photo: ""
+  bioethics:
+    reviewingCommittees: "Institutional Review Board from Tecnológico de Monterrey"
+    protocolId: "P000811-MOWI-CS002"
+  funding:
+    source: "NA"
+    program: ""
+
+es:
+  name: "MOWI"
+  title: "Observación de la Salud y la Actividad Física a través de Dispositivos Móviles y Wearables."
+  abstract: "Este proyecto de salud digital integra y homologa datos observacionales de dispositivos móviles y wearables en adultos para resolver la fragmentación de la información sobre actividad física. Mediante ciencia de datos y análisis estadístico, la investigación evalúa los patrones de movilidad para fundamentar estrategias de salud pública orientadas a prevenir el sedentarismo, la obesidad y enfermedades cardiovasculares."
+  logo: ""
+  collaborators:
+     - name: "Dr. Arturo López Pineda"
+       role: "Investigador Principal"
+       affiliation: "ENES Morelia, UNAM / Amphora Health"
+       photo: "/images/people/arturo-headshot.png"
+     - name: "Dra. Myriam Alanis Espinosa"
+       role: "Co-Investigadora"
+       affiliation: "Tecnológico de Monterrey"
+       photo: ""
+  bioethics:
+    reviewingCommittees: "Comité de Ética en Investigación del Tecnológico de Monterrey"
+    protocolId: "P000811-MOWI-CS002"
+  funding:
+    source: "NA"
+    program: ""

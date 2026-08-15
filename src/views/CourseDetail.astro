@@ -6,6 +6,7 @@ import Card from "../components/Card.astro";
 import { getLocale, useTranslations } from "../i18n/utils";
 import { parseTerm, isCurrentTerm, splitCourseTermSlug } from "../utils/academicTerm";
 import { resolveCourseAsset } from "../utils/courseAssets";
+import { getInitials } from "../utils/initials";
 
 interface StaffMember {
   name: string;
@@ -65,19 +66,6 @@ const syllabusUrl = resolveCourseAsset(courseTermParam, course.syllabus);
 function resolvePhoto(photo?: string): string | null {
   if (!photo) return null;
   return photo.startsWith("/") ? photo : resolveCourseAsset(courseTermParam, photo);
-}
-
-// "Dr. Arturo López Pineda" -> "AP"; abbreviated titles ("Dr.", "Lic.", ...)
-// are dropped so they don't end up contributing an initial themselves.
-function getInitials(name: string): string {
-  const words = name
-    .replace(/["'“”‘’]/g, "")
-    .split(/\s+/)
-    .filter((word) => word && !word.endsWith("."));
-  if (words.length === 0) return "";
-  const first = words[0][0];
-  const last = words[words.length - 1][0];
-  return (words.length > 1 ? first + last : first).toUpperCase();
 }
 
 const hasPrerequisites = Boolean(course.prerequisites);

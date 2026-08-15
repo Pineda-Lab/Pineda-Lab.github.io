@@ -2,26 +2,45 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Logo from "./Logo.astro";
 import { getLocale, useTranslations, locales } from "../i18n/utils";
+import { getProjects } from "../utils/projects";
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 
 const basePath = Astro.url.pathname.replace(/^\/es(\/|$)/, "/");
 
+const homeHref = getRelativeLocaleUrl(locale, "/");
+
+const projectOptions = getProjects(locale).map((project) => ({
+  slug: project.slug,
+  name: project.name,
+  href: getRelativeLocaleUrl(locale, `/${project.slug}`),
+}));
+const projectPaths = projectOptions.map((project) => `/${project.slug}`);
+
+// Projects has no listing page and no "all projects" link — the nav entry is
+// just a dropdown trigger (desktop) / non-link label (mobile) over the
+// individual project links. Each project's own page is a clean top-level URL
+// (/diabetia, not /projects/diabetia), so its active state is matched
+// against projectPaths rather than a path prefix.
 const navItems = [
   { path: "/", label: t.nav.home },
   { path: "/people", label: t.nav.people },
+  { path: "/projects", label: t.nav.projects, dropdown: true, matchPaths: projectPaths },
   { path: "/teaching", label: t.nav.teaching },
   { path: "/publications", label: t.nav.publications },
 ];
 
 const navLinks = navItems.map((item) => ({
-  href: getRelativeLocaleUrl(locale, item.path),
+  href: item.href ?? getRelativeLocaleUrl(locale, item.path),
   label: item.label,
-  active: item.path === "/" ? basePath === "/" : basePath.startsWith(item.path),
+  active: item.matchPaths
+    ? item.matchPaths.includes(basePath)
+    : item.path === "/"
+      ? basePath === "/"
+      : basePath.startsWith(item.path),
+  dropdown: item.dropdown ?? false,
 }));
-
-const homeHref = getRelativeLocaleUrl(locale, "/");
 
 const localeLabels = { en: t.nav.langEnglish, es: t.nav.langSpanish };
 const localeOptions = locales.map((loc) => ({
@@ -42,22 +61,58 @@ const localeOptions = locales.map((loc) => ({
     <div class="hidden items-center gap-2 md:flex">
       <ul class="flex items-center gap-1">
         {
-          navLinks.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                aria-current={link.active ? "page" : undefined}
-                class:list={[
-                  "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                  link.active
-                    ? "bg-slate-blue text-white"
-                    : "text-navy/80 hover:bg-slate-blue/10 hover:text-slate-blue",
-                ]}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))
+          navLinks.map((link) =>
+            link.dropdown ? (
+              <li class="relative">
+                <button
+                  id="projects-toggle"
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="projects-menu"
+                  class:list={[
+                    "inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                    link.active
+                      ? "bg-slate-blue text-white"
+                      : "text-navy/80 hover:bg-slate-blue/10 hover:text-slate-blue",
+                  ]}
+                >
+                  {link.label}
+                  <svg id="projects-chevron" class="h-3 w-3 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <div
+                  id="projects-menu"
+                  role="menu"
+                  class="invisible absolute left-0 top-full mt-2 w-48 origin-top-left scale-95 rounded-xl border border-slate-200 bg-white py-1 opacity-0 shadow-lg transition-all"
+                >
+                  {
+                    projectOptions.map((project) => (
+                      <a href={project.href} role="menuitem" class="block px-3 py-2 text-sm text-navy/80 hover:bg-slate-blue/5">
+                        {project.name}
+                      </a>
+                    ))
+                  }
+                </div>
+              </li>
+            ) : (
+              <li>
+                <a
+                  href={link.href}
+                  aria-current={link.active ? "page" : undefined}
+                  class:list={[
+                    "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                    link.active
+                      ? "bg-slate-blue text-white"
+                      : "text-navy/80 hover:bg-slate-blue/10 hover:text-slate-blue",
+                  ]}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ),
+          )
         }
       </ul>
 
@@ -134,18 +189,43 @@ const localeOptions = locales.map((loc) => ({
       {
         navLinks.map((link) => (
           <li>
-            <a
-              href={link.href}
-              aria-current={link.active ? "page" : undefined}
-              class:list={[
-                "block rounded-md px-3 py-2 text-base font-medium",
-                link.active
-                  ? "bg-slate-blue text-white"
-                  : "text-navy/80 hover:bg-slate-blue/10 hover:text-slate-blue",
-              ]}
-            >
-              {link.label}
-            </a>
+            {link.dropdown ? (
+              <p
+                class:list={[
+                  "block rounded-md px-3 py-2 text-base font-medium",
+                  link.active ? "bg-slate-blue text-white" : "text-navy/80",
+                ]}
+              >
+                {link.label}
+              </p>
+            ) : (
+              <a
+                href={link.href}
+                aria-current={link.active ? "page" : undefined}
+                class:list={[
+                  "block rounded-md px-3 py-2 text-base font-medium",
+                  link.active
+                    ? "bg-slate-blue text-white"
+                    : "text-navy/80 hover:bg-slate-blue/10 hover:text-slate-blue",
+                ]}
+              >
+                {link.label}
+              </a>
+            )}
+            {link.dropdown && (
+              <ul class="mt-1 space-y-1 pl-4">
+                {projectOptions.map((project) => (
+                  <li>
+                    <a
+                      href={project.href}
+                      class="block rounded-md px-3 py-2 text-sm text-navy/70 hover:bg-slate-blue/10 hover:text-slate-blue"
+                    >
+                      {project.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))
       }
@@ -208,35 +288,40 @@ const localeOptions = locales.map((loc) => ({
     });
   });
 
-  const langToggle = document.getElementById("lang-toggle");
-  const langMenu = document.getElementById("lang-menu");
-  const langChevron = document.getElementById("lang-chevron");
+  function setupDropdown(toggleId: string, menuId: string, chevronId: string) {
+    const toggle = document.getElementById(toggleId);
+    const dropdownMenu = document.getElementById(menuId);
+    const chevron = document.getElementById(chevronId);
 
-  function closeLangMenu() {
-    langMenu?.classList.add("invisible", "opacity-0", "scale-95");
-    langChevron?.classList.remove("rotate-180");
-    langToggle?.setAttribute("aria-expanded", "false");
+    function close() {
+      dropdownMenu?.classList.add("invisible", "opacity-0", "scale-95");
+      chevron?.classList.remove("rotate-180");
+      toggle?.setAttribute("aria-expanded", "false");
+    }
+
+    function open() {
+      dropdownMenu?.classList.remove("invisible", "opacity-0", "scale-95");
+      chevron?.classList.add("rotate-180");
+      toggle?.setAttribute("aria-expanded", "true");
+    }
+
+    toggle?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      isOpen ? close() : open();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!dropdownMenu || !toggle) return;
+      if (dropdownMenu.contains(event.target as Node) || toggle.contains(event.target as Node)) return;
+      close();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") close();
+    });
   }
 
-  function openLangMenu() {
-    langMenu?.classList.remove("invisible", "opacity-0", "scale-95");
-    langChevron?.classList.add("rotate-180");
-    langToggle?.setAttribute("aria-expanded", "true");
-  }
-
-  langToggle?.addEventListener("click", (event) => {
-    event.stopPropagation();
-    const isOpen = langToggle.getAttribute("aria-expanded") === "true";
-    isOpen ? closeLangMenu() : openLangMenu();
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!langMenu || !langToggle) return;
-    if (langMenu.contains(event.target as Node) || langToggle.contains(event.target as Node)) return;
-    closeLangMenu();
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeLangMenu();
-  });
+  setupDropdown("lang-toggle", "lang-menu", "lang-chevron");
+  setupDropdown("projects-toggle", "projects-menu", "projects-chevron");
 </script>
