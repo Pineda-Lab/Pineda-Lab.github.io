@@ -5,7 +5,7 @@ en:
   campusPhotoAlt: "ENES Morelia campus"
   ctaPrimary: "Meet the team"
   pillarsEyebrow: "Research Pillars"
-  pillarsTitle: "Where we focus our work"
+  pillarsTitle: "What is the lab's focus?"
   pillars:
     - icon: "brain"
       title: "AI in Health"
@@ -24,7 +24,7 @@ es:
   campusPhotoAlt: "Campus de la ENES Morelia"
   ctaPrimary: "Conoce al equipo"
   pillarsEyebrow: "Líneas de Investigación"
-  pillarsTitle: "En qué enfocamos nuestro trabajo"
+  pillarsTitle: "¿Cuál es el foco del laboratoio?"
   pillars:
     - icon: "brain"
       title: "IA en Salud"
