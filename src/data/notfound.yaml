@@ -1,0 +1,11 @@
+en:
+  code: "404"
+  title: "Page not found"
+  message: "The page you're looking for doesn't exist or has been moved."
+  homeLabel: "Back to Home"
+
+es:
+  code: "404"
+  title: "Página no encontrada"
+  message: "La página que buscas no existe o fue movida."
+  homeLabel: "Volver al inicio"

@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import notFound from "../data/notfound.yaml";
+---
+
+<Layout
+  title={`${notFound.en.code} · ${notFound.en.title}`}
+  description={notFound.en.message}
+  noindex
+>
+  <section class="relative flex min-h-[70vh] items-center overflow-hidden bg-surface">
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--color-ice)_0%,_transparent_60%)] opacity-20"
+    >
+    </div>
+    <div class="relative mx-auto w-full max-w-3xl px-6 py-16 text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-ice">
+        {notFound.en.code}
+      </p>
+
+      <div data-locale-block="en">
+        <h1 class="mt-2 text-balance text-4xl font-bold tracking-tight text-navy sm:text-5xl">
+          {notFound.en.title}
+        </h1>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-slate-600">
+          {notFound.en.message}
+        </p>
+        <Button href="/" variant="primary" class="mt-8 inline-block">
+          {notFound.en.homeLabel}
+        </Button>
+      </div>
+
+      <div data-locale-block="es" hidden>
+        <h1 class="mt-2 text-balance text-4xl font-bold tracking-tight text-navy sm:text-5xl">
+          {notFound.es.title}
+        </h1>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-slate-600">
+          {notFound.es.message}
+        </p>
+        <Button href="/es/" variant="primary" class="mt-8 inline-block">
+          {notFound.es.homeLabel}
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  if (window.location.pathname.match(/^\/es(\/|$)/)) {
+    document
+      .querySelector('[data-locale-block="en"]')
+      ?.setAttribute("hidden", "");
+    document.querySelector('[data-locale-block="es"]')?.removeAttribute("hidden");
+  }
+</script>
