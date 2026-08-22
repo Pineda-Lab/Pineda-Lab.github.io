@@ -5,6 +5,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Pill from "../components/Pill.astro";
+import LogoWatermark from "../components/LogoWatermark.astro";
 import { getLocale, useTranslations } from "../i18n/utils";
 import { getProject } from "../utils/projects";
 import { getInitials } from "../utils/initials";
@@ -42,7 +43,8 @@ const navSections = [
 ---
 
 <Layout title={project.name} description={project.title}>
-  <section class="relative overflow-hidden bg-gradient-to-br from-slate-blue to-rose text-white">
+  <section class="relative overflow-hidden bg-gradient-to-br from-navy via-slate-blue to-ice text-white">
+    <LogoWatermark class="-right-12 -bottom-16 h-56 w-56 sm:h-72 sm:w-72" />
     <div class="relative mx-auto max-w-4xl px-6 py-20 sm:py-28">
       <div class="flex flex-col items-center gap-8 text-center sm:flex-row sm:text-left">
         {

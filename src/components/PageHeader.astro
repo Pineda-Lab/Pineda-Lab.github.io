@@ -1,5 +1,6 @@
 ---
 import Eyebrow from "./Eyebrow.astro";
+import LogoWatermark from "./LogoWatermark.astro";
 
 interface Props {
   eyebrow?: string;
@@ -12,6 +13,7 @@ const { eyebrow, title, description } = Astro.props;
 
 <section class="relative overflow-hidden border-b border-slate-200/70 bg-surface">
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--color-ice)_0%,_transparent_60%)] opacity-20"></div>
+  <LogoWatermark class="-right-10 -top-10 h-40 w-40 sm:h-52 sm:w-52" opacity="opacity-5" />
   <div class="relative mx-auto max-w-6xl px-6 py-16 sm:py-20">
     {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
     <h1 class="mt-2 text-balance text-4xl font-bold tracking-tight text-navy sm:text-5xl">{title}</h1>

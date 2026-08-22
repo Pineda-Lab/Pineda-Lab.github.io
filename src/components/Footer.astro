@@ -1,6 +1,7 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Logo from "./Logo.astro";
+import LogoWatermark from "./LogoWatermark.astro";
 import { getLocale, useTranslations } from "../i18n/utils";
 
 const locale = getLocale(Astro.currentLocale);
@@ -23,8 +24,10 @@ const links = [
 ];
 ---
 
-<footer class="border-t border-slate-200/70 bg-navy text-slate-300">
-  <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-6 sm:flex-row sm:justify-between">
+<footer class="relative overflow-hidden border-t border-slate-200/70 bg-gradient-to-r from-navy to-slate-blue text-slate-300">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_left,_var(--color-ice)_0%,_transparent_45%)] opacity-20"></div>
+  <LogoWatermark class="-right-10 top-1/2 h-40 w-40 -translate-y-1/2 sm:h-48 sm:w-48" />
+  <div class="relative mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-6 sm:flex-row sm:justify-between">
     <a href={homeHref} class="flex items-center gap-2.5 text-white">
       <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white p-1">
         <Logo class="h-full w-full" />

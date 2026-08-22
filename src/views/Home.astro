@@ -6,6 +6,7 @@ import Eyebrow from "../components/Eyebrow.astro";
 import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 import IconBadge from "../components/IconBadge.astro";
+import LogoWatermark from "../components/LogoWatermark.astro";
 import { getLocale, useTranslations } from "../i18n/utils";
 import { getInitials } from "../utils/initials";
 import { getProjects } from "../utils/projects";
@@ -25,8 +26,9 @@ const mapsQuery = encodeURIComponent(addressLines.join(", "));
 ---
 
 <Layout title={t.home.title} description={t.meta.defaultDescription}>
-  <section class="relative overflow-hidden bg-navy text-white">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--color-slate-blue)_0%,_transparent_55%)] opacity-70"></div>
+  <section class="relative overflow-hidden bg-gradient-to-br from-navy via-slate-blue to-ice text-white">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_white_0%,_transparent_45%)] opacity-10"></div>
+    <LogoWatermark class="-right-16 -top-24 h-72 w-72 sm:h-96 sm:w-96" />
     <div class="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
       <div class="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div class="max-w-3xl">

@@ -1,0 +1,15 @@
+---
+interface Props {
+  class?: string;
+  opacity?: string;
+}
+
+const { class: className = "", opacity = "opacity-10" } = Astro.props;
+---
+
+<img
+  src="/images/logos/pinedalab-logo.png"
+  alt=""
+  aria-hidden="true"
+  class:list={["pointer-events-none absolute", opacity, className]}
+/>
