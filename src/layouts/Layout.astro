@@ -29,7 +29,7 @@ const {
 const pageTitle =
     title === t.meta.siteName ? title : `${title} · ${t.meta.siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImageURL = new URL("/images/og/og-image.jpg", Astro.site);
+const ogImageURL = new URL("/images/og/og-image-v2.jpg", Astro.site);
 
 const basePath = Astro.url.pathname.replace(/^\/es(\/|$)/, "/");
 const alternateLinks = locales.map((loc) => ({
